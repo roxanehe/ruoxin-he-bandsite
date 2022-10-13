@@ -1,7 +1,11 @@
 @use "./partials/variables" as *;
 @use "./partials/mixin" as *;
 body{
-    margin:0;
+    //margin for the whole page
+    margin:0 1rem;
+    @include tablet{
+        margin:0 2.25rem;
+    }
 }
 *{
     box-sizing: border-box;
@@ -10,65 +14,71 @@ body{
     background-color: $primary-black;
     display: flex;
     flex-direction: column;
+    //justify-content: space-around;
     align-items: center;
     padding-top:1rem;
     @include tablet{
         flex-direction:row;
-        justify-content:space-between;
-        align-items:flex-start;
+        //align-items:center;
+        padding-top:0;
         padding-left:2rem;
-    }
-    @include desktop{
-        justify-content:space-between;
+        gap:1rem;
     }
     
-}
-svg{
-    color:$primary-white;
 }
 .nav{
     width:100%;
     display: flex;
-    justify-content:space-between;
-    align-items:center;
-    @include tablet{ 
-        justify-content:space-evenly;
-        position:relative;
-        right:25rem;
-        width:20rem;
-    }
+    justify-content:space-evenly;
+    padding-top:1rem;
+    @include tablet{
+        width: 15rem;
+   } 
 }
 .nav__item{
     @include text-style(14px,22px);
     font-family: 'avenir-next';
     font-weight: 600;
-    padding:1rem 5rem;
+    width:50%;
+    text-align: center;
+    padding-bottom: 1rem;
     @include tablet{
-        padding:0;
-        padding-bottom:1rem;
-    }
-    //padding:0 20%;
-    //padding-bottom: 1rem;
-    
+         width: 27%;
+    }  
 }
+
 .nav__item-active{
     color:$primary-white;
     border-bottom: 3px solid $primary-white;
+   
    
 }
 .nav__item-inactive{
     color:$second-silver;
 }
-.hero{
+.hero__img{
+    //background: rgba(0,0,0,0.5);
     background-image: url(../Assets/Images/hero-bio.jpg);
     background-size: 100%;
-    background-position: center;   
+    background-position: center;  
+    height:18em;
+    @include tablet{
+        height:30rem;
+   } 
 }
-.hero__sec{
-    height:40vh;
+.hero__opacity{
+    width:100%;
+    height:18em;
+    background: rgba(0,0,0,0.5);
+    position:relative;
+    //align the text
     display:flex;
     justify-content:flex-start;
     align-items: center;
+    @include tablet{
+        height:30rem;
+   } 
+    
 }
 .hero__title{
     color:$primary-white;
@@ -76,6 +86,9 @@ svg{
     font-family: 'avenir-next';
     font-weight: 700;
     padding-left:2rem;
+    @include tablet{
+        @include text-style(36px,44px);
+   }
 }
 .main__title{
     @include text-style(24px,32px);
@@ -83,9 +96,19 @@ svg{
     font-weight: 700;
     margin-top:24px;
     margin-bottom: 16px;
+    @include tablet{
+        margin-top:48px;
+        margin-bottom: 36px;
+        @include text-style(36px,44px);
+    }
 }
 .main{
+    //another margin only for the main body
     margin:0 1rem;
+    @include tablet{
+        margin:0 36px;
+    }
+
 }
 .content__img{
     width:100%;
@@ -94,19 +117,52 @@ svg{
     @include text-style(14px,22px);
     font-family: 'avenir-next';
     font-weight: 600;
+    @include tablet{
+        @include text-style(24px,32px);
+    }
+}
+.content__intro-vary{
+
+    @include tablet{
+        @include text-style(14px,22px);
+    }
 }
 .content__title{
     @include text-style(14px,22px);
     font-family: 'avenir-next';
-    font-weight: 600;
+    font-weight: 400;
+    @include tablet{
+        @include text-style(24px,32px);
+    }
 }
-.content__main{
+
+.content__items{
+    @include tablet{
+        display: flex;
+        justify-content: space-between;
+        gap:1rem;
+    }
+}
+.content__item{
     @include text-style(13px,18px);
     font-family: 'avenir-next';
     font-weight: 400;
+    @include tablet{
+        @include text-style(14px,22px);
+
+    }
 }
 .gallery__imgs{
     display: flex;
     flex-direction: column;
     gap:1rem;
+    @include tablet{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+.gallery__img{
+    @include tablet{
+        width:30%;
+    }
 }
