@@ -14,12 +14,11 @@
   font-weight: 400;
 }
 body {
-  margin: 0 1rem;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 .header {
@@ -27,48 +26,126 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1rem;
-  margin: 1rem;
+  padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 2rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .header {
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
 }
 
-.title {
+svg {
   color: white;
-  font-size: 24px;
-  line-height: 32px;
-  font-family: "avenir-next";
-  font-weight: 700;
 }
 
 .nav {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    justify-content: space-evenly;
+    position: relative;
+    right: 25rem;
+    width: 20rem;
+  }
 }
 
 .nav__item {
   font-size: 14px;
   line-height: 22px;
+  font-family: "avenir-next";
   font-weight: 600;
-  padding-bottom: 1rem;
+  padding: 1rem 5rem;
+}
+@media screen and (min-width: 768px) {
+  .nav__item {
+    padding: 0;
+    padding-bottom: 1rem;
+  }
 }
 
 .nav__item-active {
   color: white;
-  border-bottom: 4px solid white;
+  border-bottom: 3px solid white;
 }
 
 .nav__item-inactive {
   color: #e1e1e1;
+}
+
+.hero {
+  background-image: url(../Assets/Images/hero-bio.jpg);
+  background-size: 100%;
+  background-position: center;
+}
+
+.hero__sec {
+  height: 40vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero__title {
+  color: white;
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "avenir-next";
+  font-weight: 700;
+  padding-left: 2rem;
+}
+
+.main__title {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: "avenir-next";
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.main {
+  margin: 0 1rem;
+}
+
+.content__img {
+  width: 100%;
+}
+
+.content__intro {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "avenir-next";
+  font-weight: 600;
+}
+
+.content__title {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "avenir-next";
+  font-weight: 600;
+}
+
+.content__main {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "avenir-next";
+  font-weight: 400;
+}
+
+.gallery__imgs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }/*# sourceMappingURL=bio.css.map */
