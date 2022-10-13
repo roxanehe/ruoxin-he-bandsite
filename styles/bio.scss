@@ -1,31 +1,29 @@
 @use "./partials/variables" as *;
 @use "./partials/mixin" as *;
 body{
-    //margin for the whole page
-    margin:0 1rem;
-    @include tablet{
-        margin:0 2.25rem;
-    }
+    margin:0;
 }
 *{
     box-sizing: border-box;
 }
+
+//whole header
 .header{
     background-color: $primary-black;
     display: flex;
     flex-direction: column;
-    //justify-content: space-around;
     align-items: center;
     padding-top:1rem;
+   
     @include tablet{
         flex-direction:row;
-        //align-items:center;
         padding-top:0;
         padding-left:2rem;
         gap:1rem;
     }
     
 }
+//only the two tabs
 .nav{
     width:100%;
     display: flex;
@@ -35,6 +33,7 @@ body{
         width: 15rem;
    } 
 }
+//individual tab
 .nav__item{
     @include text-style(14px,22px);
     font-family: 'avenir-next';
@@ -56,27 +55,31 @@ body{
 .nav__item-inactive{
     color:$second-silver;
 }
+
+//whole hero sec
 .hero__img{
-    //background: rgba(0,0,0,0.5);
     background-image: url(../Assets/Images/hero-bio.jpg);
     background-size: 100%;
     background-position: center;  
     height:18em;
     @include tablet{
-        height:30rem;
+        height:25rem;
    } 
 }
+//the sec needed to add opacity
 .hero__opacity{
     width:100%;
     height:18em;
     background: rgba(0,0,0,0.5);
     position:relative;
-    //align the text
+    
+    //used to align the text
     display:flex;
     justify-content:flex-start;
     align-items: center;
+
     @include tablet{
-        height:30rem;
+        height:25rem;
    } 
     
 }
@@ -84,31 +87,45 @@ body{
     color:$primary-white;
     @include text-style(24px,32px);
     font-family: 'avenir-next';
-    font-weight: 700;
-    padding-left:2rem;
+    font-weight: 600;
+    padding-left:1rem;
     @include tablet{
         @include text-style(36px,44px);
+        padding-left:2rem;
    }
 }
+//two titles in main sec
 .main__title{
     @include text-style(24px,32px);
     font-family: 'avenir-next';
-    font-weight: 700;
-    margin-top:24px;
-    margin-bottom: 16px;
+    font-weight: 600;
+    margin:0;
+    padding-top:24px;
+    padding-bottom: 16px;
     @include tablet{
-        margin-top:48px;
-        margin-bottom: 36px;
+        padding-top:48px;
+        padding-bottom: 36px;
         @include text-style(36px,44px);
     }
 }
-.main{
-    //another margin only for the main body
+
+// musicians section
+.content{
     margin:0 1rem;
     @include tablet{
         margin:0 36px;
     }
-
+    @include desktop{
+        max-width: 1020px;
+        margin:0 auto;
+    }
+}
+//content after musicians heading
+.main__content{
+    padding:0 16px;
+    @include tablet{
+        padding:0 36px;
+    }
 }
 .content__img{
     width:100%;
@@ -130,7 +147,7 @@ body{
 .content__title{
     @include text-style(14px,22px);
     font-family: 'avenir-next';
-    font-weight: 400;
+    font-weight: 600;
     @include tablet{
         @include text-style(24px,32px);
     }
@@ -152,6 +169,19 @@ body{
 
     }
 }
+
+//gallery section
+.gallery{
+    background-color: $second-white;
+    padding:0 1rem;
+    margin:0 auto;
+    @include tablet{
+        padding:0 36px;
+    }
+    @include desktop{
+        padding:0 130px;
+    }
+}
 .gallery__imgs{
     display: flex;
     flex-direction: column;
@@ -164,5 +194,8 @@ body{
 .gallery__img{
     @include tablet{
         width:30%;
+    }
+    @include desktop{
+        width:31%;
     }
 }

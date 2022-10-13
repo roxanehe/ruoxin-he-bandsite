@@ -14,12 +14,7 @@
   font-weight: 400;
 }
 body {
-  margin: 0 1rem;
-}
-@media screen and (min-width: 768px) {
-  body {
-    margin: 0 2.25rem;
-  }
+  margin: 0;
 }
 
 * {
@@ -86,7 +81,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero__img {
-    height: 30rem;
+    height: 25rem;
   }
 }
 
@@ -101,7 +96,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero__opacity {
-    height: 30rem;
+    height: 25rem;
   }
 }
 
@@ -110,13 +105,14 @@ body {
   font-size: 24px;
   line-height: 32px;
   font-family: "avenir-next";
-  font-weight: 700;
-  padding-left: 2rem;
+  font-weight: 600;
+  padding-left: 1rem;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
     font-size: 36px;
     line-height: 44px;
+    padding-left: 2rem;
   }
 }
 
@@ -124,25 +120,41 @@ body {
   font-size: 24px;
   line-height: 32px;
   font-family: "avenir-next";
-  font-weight: 700;
-  margin-top: 24px;
-  margin-bottom: 16px;
+  font-weight: 600;
+  margin: 0;
+  padding-top: 24px;
+  padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
   .main__title {
-    margin-top: 48px;
-    margin-bottom: 36px;
+    padding-top: 48px;
+    padding-bottom: 36px;
     font-size: 36px;
     line-height: 44px;
   }
 }
 
-.main {
+.content {
   margin: 0 1rem;
 }
 @media screen and (min-width: 768px) {
-  .main {
+  .content {
     margin: 0 36px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .content {
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+}
+
+.main__content {
+  padding: 0 16px;
+}
+@media screen and (min-width: 768px) {
+  .main__content {
+    padding: 0 36px;
   }
 }
 
@@ -174,7 +186,7 @@ body {
   font-size: 14px;
   line-height: 22px;
   font-family: "avenir-next";
-  font-weight: 400;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   .content__title {
@@ -204,6 +216,22 @@ body {
   }
 }
 
+.gallery {
+  background-color: #fafafa;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .gallery {
+    padding: 0 36px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding: 0 130px;
+  }
+}
+
 .gallery__imgs {
   display: flex;
   flex-direction: column;
@@ -219,5 +247,10 @@ body {
 @media screen and (min-width: 768px) {
   .gallery__img {
     width: 30%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery__img {
+    width: 31%;
   }
 }/*# sourceMappingURL=bio.css.map */
