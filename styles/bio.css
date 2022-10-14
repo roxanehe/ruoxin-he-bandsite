@@ -236,6 +236,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__imgs {
@@ -253,4 +254,115 @@ body {
   .gallery__img {
     width: 31%;
   }
+}
+
+.footer {
+  background-color: #323232;
+  color: white;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 0 36px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer {
+    padding: 0 130px;
+  }
+}
+
+.footer__socialmedia {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .footer__socialmedia {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.footer__icons {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__icons {
+    padding-top: 48px;
+    padding-bottom: 36px;
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .footer__contacts {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__name {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "avenir-next";
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .footer__name {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.footer__address {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "avenir-next";
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .footer__address {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.footer__email, .footer__copy {
+  font-size: 10px;
+  line-height: 20px;
+  font-family: "avenir-next";
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  .footer__email, .footer__copy {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.footer__copy {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.footer__logo {
+  position: absolute;
+  left: 1rem;
 }/*# sourceMappingURL=bio.css.map */

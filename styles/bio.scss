@@ -94,7 +94,7 @@ body{
         padding-left:2rem;
    }
 }
-//two titles in main sec
+//3 h1 titles in main sec
 .main__title{
     @include text-style(24px,32px);
     font-family: 'avenir-next';
@@ -186,6 +186,7 @@ body{
     display: flex;
     flex-direction: column;
     gap:1rem;
+    margin-bottom: 1rem;
     @include tablet{
         flex-direction: row;
         flex-wrap: wrap;
@@ -198,4 +199,92 @@ body{
     @include desktop{
         width:31%;
     }
+}
+
+//footer section
+.footer{
+  background-color: $primary-black;
+  color:$primary-white;
+  padding:0 1rem;
+  margin:0 auto;
+    @include tablet{
+        padding:0 36px;
+    }
+    @include desktop{
+        padding:0 130px;
+    }
+}
+//'get in touch' section
+.footer__socialmedia{
+  @include flex-column;
+  @include tablet{
+    @include flex-row;
+    align-items: center;
+    gap:2rem;
+}
+}
+.footer__icons{
+  @include flex-row;
+  gap:2rem;
+  @include tablet{
+    padding-top:48px;
+    padding-bottom: 36px;
+    @include text-style(36px,44px);
+}
+}
+.footer__icon{
+
+}
+.footer__title{
+
+}
+// 3 different contacts section
+.footer__contacts{
+  @include flex-column;
+  @include tablet{
+    @include flex-row;
+    gap:2rem;
+}
+}
+
+//every individual contact section
+.footer__contact{
+    @include flex-column;
+}
+.footer__name{
+    @include text-style(13px,18px);
+    font-family: 'avenir-next';
+    font-weight: 600;
+    @include tablet{
+        @include text-style(14px,20px);
+    }
+
+}
+.footer__address{
+    @include text-style(13px,18px);
+    font-family: 'avenir-next';
+    font-weight: 400;
+    @include tablet{
+        @include text-style(14px,20px);
+    }
+
+}
+.footer__email,.footer__copy{
+    @include text-style(10px,20px);
+    font-family: 'avenir-next';
+    font-weight: 400;
+    @include tablet{
+        @include text-style(12px,20px);
+    }
+}
+.footer__copy{
+    position:absolute;
+    left:1rem;
+    bottom:1rem;
+
+}
+.footer__logo{
+    position:absolute;
+    left:1rem;
+    //top:10rem;
 }
