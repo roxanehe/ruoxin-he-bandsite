@@ -91,7 +91,7 @@ body{
     padding-left:1rem;
     @include tablet{
         @include text-style(36px,44px);
-        padding-left:2rem;
+        padding-left:36px;
    }
 }
 //3 h1 titles in main sec
@@ -116,7 +116,7 @@ body{
         margin:0 36px;
     }
     @include desktop{
-        max-width: 1020px;
+        max-width: 960px;
         margin:0 auto;
     }
 }
@@ -173,18 +173,27 @@ body{
 //gallery section
 .gallery{
     background-color: $second-white;
-    padding:0 1rem;
-    margin:0 auto;
+    //margin:0 auto;
     @include tablet{
-        padding:0 36px;
-    }
-    @include desktop{
-        padding:0 130px;
+       //padding:0 36px;
     }
 }
+.gallery__sec{
+
+    margin:0 1rem;
+    @include tablet{
+        margin:0 36px;
+    }
+    @include desktop{
+        max-width: 960px;
+        margin:0 auto;
+    } 
+    
+}
 .gallery__imgs{
-    display: flex;
-    flex-direction: column;
+   display: flex;
+   flex-direction: column;
+   // justify-content: center;
     gap:1rem;
     margin-bottom: 1rem;
     @include tablet{
@@ -193,11 +202,12 @@ body{
     }
 }
 .gallery__img{
+    //margin:0 auto;
     @include tablet{
-        width:30%;
+        width: 31%;
     }
     @include desktop{
-        width:31%;
+        width:32%;
     }
 }
 
@@ -205,21 +215,32 @@ body{
 .footer{
   background-color: $primary-black;
   color:$primary-white;
-  padding:0 1rem;
+  //padding:0 1rem;
   margin:0 auto;
+  //position:relative;
     @include tablet{
-        padding:0 36px;
+        //padding:0 36px;
+    }
+}
+.footer__sec{
+    max-width:960px;
+    position:relative;
+    margin:0 1rem;
+    @include tablet{
+        margin:0 36px;
     }
     @include desktop{
-        padding:0 130px;
-    }
+        max-width: 960px;
+        margin:0 auto;
+    } 
+
 }
 //'get in touch' section
 .footer__socialmedia{
   @include flex-column;
   @include tablet{
     @include flex-row;
-    align-items: center;
+    align-items:center;
     gap:2rem;
 }
 }
@@ -232,18 +253,25 @@ body{
     @include text-style(36px,44px);
 }
 }
-.footer__icon{
 
+.footer__logo{
+   position: absolute;
+   bottom:4rem;
+   @include tablet{
+    position: absolute;
+    right: 0;
+    top:4rem;
+   }
 }
-.footer__title{
 
-}
 // 3 different contacts section
 .footer__contacts{
   @include flex-column;
+  padding-bottom:10rem;
   @include tablet{
     @include flex-row;
     gap:2rem;
+    padding-bottom:5rem;
 }
 }
 
@@ -279,12 +307,7 @@ body{
 }
 .footer__copy{
     position:absolute;
-    left:1rem;
     bottom:1rem;
 
 }
-.footer__logo{
-    position:absolute;
-    left:1rem;
-    //top:10rem;
-}
+

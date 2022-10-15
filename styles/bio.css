@@ -112,7 +112,7 @@ body {
   .hero__title {
     font-size: 36px;
     line-height: 44px;
-    padding-left: 2rem;
+    padding-left: 36px;
   }
 }
 
@@ -144,7 +144,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .content {
-    max-width: 1020px;
+    max-width: 960px;
     margin: 0 auto;
   }
 }
@@ -218,17 +218,19 @@ body {
 
 .gallery {
   background-color: #fafafa;
-  padding: 0 1rem;
-  margin: 0 auto;
+}
+.gallery__sec {
+  margin: 0 1rem;
 }
 @media screen and (min-width: 768px) {
-  .gallery {
-    padding: 0 36px;
+  .gallery__sec {
+    margin: 0 36px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .gallery {
-    padding: 0 130px;
+  .gallery__sec {
+    max-width: 960px;
+    margin: 0 auto;
   }
 }
 
@@ -247,29 +249,34 @@ body {
 
 @media screen and (min-width: 768px) {
   .gallery__img {
-    width: 30%;
+    width: 31%;
   }
 }
 @media screen and (min-width: 1280px) {
   .gallery__img {
-    width: 31%;
+    width: 32%;
   }
 }
 
 .footer {
   background-color: #323232;
   color: white;
-  padding: 0 1rem;
   margin: 0 auto;
 }
+.footer__sec {
+  max-width: 960px;
+  position: relative;
+  margin: 0 1rem;
+}
 @media screen and (min-width: 768px) {
-  .footer {
-    padding: 0 36px;
+  .footer__sec {
+    margin: 0 36px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .footer {
-    padding: 0 130px;
+  .footer__sec {
+    max-width: 960px;
+    margin: 0 auto;
   }
 }
 
@@ -300,15 +307,29 @@ body {
   }
 }
 
+.footer__logo {
+  position: absolute;
+  bottom: 4rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo {
+    position: absolute;
+    right: 0;
+    top: 4rem;
+  }
+}
+
 .footer__contacts {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10rem;
 }
 @media screen and (min-width: 768px) {
   .footer__contacts {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    padding-bottom: 5rem;
   }
 }
 
@@ -358,11 +379,5 @@ body {
 
 .footer__copy {
   position: absolute;
-  left: 1rem;
   bottom: 1rem;
-}
-
-.footer__logo {
-  position: absolute;
-  left: 1rem;
 }/*# sourceMappingURL=bio.css.map */
