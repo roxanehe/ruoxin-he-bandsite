@@ -1,9 +1,23 @@
+//color
 $primary-white:white;
 $primary-black:#323232;
 $primary-silver:#afafaf;
 $second-black:#000000;
 $second-silver:#e1e1e1;
 $second-white:#fafafa;
+
+//padding
+$padding-top-mobile:24px;
+$padding-bottom-mobile:16px;
+$padding-top-tablet:48px;
+$padding-bottom-tablet:36px;
+
+//margin
+$margin-mobile:0 16px;
+$margin-tablet:0 36px;
+$margin-desktop:0 auto;
+$width-desktop:1020px;
+
 
 @font-face {
     font-family: 'avenir-next';
