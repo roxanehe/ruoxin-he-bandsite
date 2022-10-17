@@ -1,1 +1,7 @@
-/*# sourceMappingURL=shows.css.map */
+.shows__title {
+  color: grey;
+}
+
+.shows__date {
+  color: black;
+}/*# sourceMappingURL=shows.css.map */
