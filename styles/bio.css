@@ -76,16 +76,16 @@ body {
   background-image: url(../Assets/Images/hero-bio.jpg);
   background-size: 100%;
   background-position: center;
-  height: 18em;
+  height: 25em;
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 25rem;
+    height: 30rem;
   }
 }
 .hero__opacity {
   width: 100%;
-  height: 18em;
+  height: 25rem;
   background: rgba(0, 0, 0, 0.5);
   position: relative;
   display: flex;
@@ -95,7 +95,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero__opacity {
-    height: 25rem;
+    height: 30rem;
   }
 }
 .hero__title {
