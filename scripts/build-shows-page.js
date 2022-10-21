@@ -1,4 +1,23 @@
 
+
+//create a shows_list section
+//create a shows_maintitile section
+//create a shows_maincontent section (which includes everything other than title)
+//create a tablet title ul and three titles li (inside of li)
+//create a card content + divider section
+//create a card content section
+//create all card elements li + button (and add them into card conetnt)
+
+//access maintitle, add it to shows_list
+//access tablet title,add it to maincontent
+//loop through the array
+     //access every element inside card, and add it to card content section
+     //add card content section into card content+devider section
+     //access devider, and add it to card content+devider section
+     //add card content+devider section into maincontent 
+//add maintitle and maincontent into showlist
+//add showlist into main
+
 let shows = [
     {date:'Mon Sept 06 2021',venue:'Ronald Lane',location:'San Francisco, CA'},
     {date:'Tue Sept 21 2021',venue:'Pier 3 East',location:'San Francisco, CA'},
@@ -11,6 +30,7 @@ let shows = [
 function createTabletTitle(){
     let titleListMobile = document.createElement('ul');
     titleListMobile.classList.add('shows__title--tablet');
+
     let showsDateTitle2 = document.createElement('li');
     let showsVenueTitle2 = document.createElement('li');
     let showsLocationTitle2 = document.createElement('li');
@@ -27,31 +47,25 @@ function createTabletTitle(){
     titleListMobile.appendChild(showsLocationTitle2);
 
     showsMainContent.appendChild(titleListMobile);
-    //showsDateTitle2.classList.add('shows__date');
-    //showsVenueTitle2.classList.add('shows__venue');
-    //showsLocationTitle2.classList.add('shows__location');
     }
 
   
-// main div ul li
-//create div showlist and append into main
+
+
+let main = document.querySelector('.main');
 let showList = document.createElement('div');
 showList.classList.add('shows__list');
-let main = document.querySelector('.main');
 
 
-//create shows-maintitle into showlist
 let showsMainTitle = document.createElement('h1');
 showsMainTitle.classList.add('shows__maintitle');
 showsMainTitle.innerText = 'Shows';
+showList.appendChild(showsMainTitle);
 
 
-//create shows-maincontent into showlist
 let showsMainContent = document.createElement('div');
 showsMainContent.classList.add('shows__maincontent');
 
-
-//create div shows__title--tablet which contains three tablet titiles and append into showlist
 createTabletTitle();
 
 
@@ -78,9 +92,6 @@ for(let i = 0; i<shows.length;i++){
     //create show card-devider add card and devider
     let showsCardDevider = document.createElement('div');
     showsCardDevider.classList.add('shows__carddevider');
-    
-    
-
 
     //add each part's title and content
     showCard.appendChild(showsDateTitle);
@@ -116,6 +127,6 @@ for(let i = 0; i<shows.length;i++){
 
 }
 
-showList.appendChild(showsMainTitle);
+
 showList.appendChild(showsMainContent);
 main.appendChild(showList); 

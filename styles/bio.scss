@@ -201,7 +201,64 @@ body{
         }
     }
 }
+.form{
+    @include flex-row;
+    margin:$margin-mobile;
+    @include tablet{
+        margin:15vw;
+    }
+    @include desktop{
+        margin:27vw;
+    }   
+}
+.form__img{
+  vertical-align: middle;
+  width:4rem;
+  height:4rem;
+  border-radius: 50%;
+}
+.form__comment{
+    //width:90%;
+}
+.comments{
+    margin:$margin-mobile;
+    @include tablet{
+        margin:15vw;
+    }
+    @include desktop{
+        margin:27vw;
+    }   
+}
+.comment{
+ @include flex-row;
+ gap:2rem;
+}
+.shows__img{
+  vertical-align: middle;
+  width:4rem;
+  height:4rem;
+  border-radius: 50%;
+}
+.comment__content{
+  @include flex-column;
+  width:90%;
+}
+.comment__person{
+  @include flex-row;
+  justify-content: space-between;
+}
+.shows__content{
 
+}
+.shows__name{
+
+}
+.shows__date{
+
+}
+.shows__devider{
+    border-bottom: 1px solid #e1e1e1;
+}
 
 
 

@@ -249,6 +249,72 @@ body {
   }
 }
 
+.form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 16px;
+}
+@media screen and (min-width: 768px) {
+  .form {
+    margin: 15vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form {
+    margin: 27vw;
+  }
+}
+
+.form__img {
+  vertical-align: middle;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.comments {
+  margin: 0 16px;
+}
+@media screen and (min-width: 768px) {
+  .comments {
+    margin: 15vw;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments {
+    margin: 27vw;
+  }
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.shows__img {
+  vertical-align: middle;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.comment__content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.comment__person {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.shows__devider {
+  border-bottom: 1px solid #e1e1e1;
+}
+
 .footer {
   background-color: #323232;
   color: white;
