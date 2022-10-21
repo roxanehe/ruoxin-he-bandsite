@@ -201,14 +201,17 @@ body{
         }
     }
 }
+
 .form{
     @include flex-row;
+    justify-content: space-between;
+    gap:2rem;
     margin:$margin-mobile;
     @include tablet{
-        margin:15vw;
+        margin:0 15vw;
     }
     @include desktop{
-        margin:27vw;
+        margin:0 27vw;
     }   
 }
 .form__img{
@@ -218,15 +221,27 @@ body{
   border-radius: 50%;
 }
 .form__comment{
-    //width:90%;
+    @include flex-column;
+    width:80%;
 }
+#comment{
+    height:10rem;
+}
+.form__button{
+    @include tablet{
+        width:30%;
+        align-self: flex-end;
+    }
+
+}
+
 .comments{
     margin:$margin-mobile;
     @include tablet{
-        margin:15vw;
+        margin:0 15vw;
     }
     @include desktop{
-        margin:27vw;
+        margin:0 27vw;
     }   
 }
 .comment{
