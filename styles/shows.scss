@@ -83,116 +83,94 @@ body{
    &__content{
     height:25rem;
     @include flex-column;
-    //align-items:flex-start;
     justify-content:space-around;
-    margin:$margin-mobile;
     padding:2rem 0;
+    @include margin-align;
     @include tablet{
-        margin:$margin-tablet;
         padding:3rem 0;
     }
     @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
         @include flex-row;
         align-items:center;
         justify-content:space-between;
     }
    }
-  &__titles{
+   &__titles{
     @include flex-column;
     align-items:flex-start;
-    gap:1rem;
-}
- &__img{
+    gap:1rem;}
+   &__img{
     width:95%;
     @include tablet{
         width:60%;
-    }
-}   
+    }}   
 
-&__subtitle{
+   &__subtitle{
     color:$primary-white;
     margin:0;
-    font-family: 'avenir-next';
-    font-weight: 400;
-    @include text-style(22px,32px);
+    @include sub-header;
+    font-weight: 600;
    }
 &__maintitle{
     color:$primary-white;
     margin: 0;
-    @include text-style(32px,32px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    @include tablet{
-        @include text-style(36px,44px);
-        
-   }
-   width:20rem;
+    width:20rem;
+    @include section-header;
 }    
 }
 
 
 //3 main titles: musician, photo and footer
 .title{
-    @include text-style(24px,32px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    margin:0;
-
-    padding-top:$padding-top-mobile;
-    padding-bottom:$padding-bottom-mobile;
-    @include tablet{
-        padding-top:$padding-top-tablet;
-        padding-bottom:$padding-bottom-tablet;
-        @include text-style(36px,44px);
-    }
+    @include section-header;
+    @include padding-title;
 }
 
-.shows__list{
-    margin:$margin-mobile;
-    @include tablet{
-        margin:$margin-tablet;
-    }
+.shows{
+  &__list{
+    @include margin-align;
     @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
         @include flex-row;
+        justify-content: space-between;
         gap:7rem;
-    }
-}
-.shows__maintitle{
-    @include text-style(24px,32px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    //padding-top:$padding-top-mobile;
-    //padding-bottom:$padding-bottom-mobile;
-    @include tablet{
-        @include text-style(36px,44px);
-       // padding-top:$padding-top-tablet;
-       // padding-bottom:$padding-bottom-tablet;
-    }     
+    }}
+  &__maintitle{
+    @include section-header; 
+    font-weight: 600;  
    }
-.shows__maincontent{
+  &__maincontent{
     text-align: left;
-    padding:2rem 0;
     @include desktop{
-        width:70vw;
-        
+        width:70vw;   
     }
 }
-.shows__title--tablet{
-    width:100%;
+  &__title--tablet{
     padding-inline-start: 0;
+    width:100%;
+    @include mobile{
+    display:none;
+   }
+    @include tablet{
+    @include flex-row;
+    list-style: none;
+    }
+  
 }
-.shows__tablettitle1,.shows__tablettitle2,.shows__tablettitle3{
+ &__tablettitle1,&__tablettitle2,&__tablettitle3{
     color:$primary-silver;
     @include body-copy;
-    font-weight: 700;
+    font-weight: 600;
     width:25%;
-    //text-align: left;
 }
-.shows__date,.shows__venue,.shows__location{
+&__title{
+    color:$primary-silver;
+    @include body-copy;
+    font-weight: 600;
+    @include tablet{
+        display:none;
+    }
+}
+&__date,&__venue,&__location{
     @include tablet{
         width:30%;
     }
@@ -200,23 +178,25 @@ body{
         width:25%;
     }
 }
-.shows__button{
+&__button{
     width:100%;
-    background-color: black;
-    color:white;
+    height:40px;
+    background-color: $primary-black;
+    color:$primary-white;
     padding:0.5rem;
+    margin:0.5rem 0;
+    border-radius: 4px;
+    @include labels;
+    font-weight: 600;
     @include tablet{
       width:30%;
     }
     @include desktop{
-        width:20%;
+        width:25%;
     }
     
 }
-.shows__card:hover{
-    background-color: $second-white;
-}
-.shows__card{
+&__card{
     list-style: none;
     padding-inline-start:0;
     margin-block-start: 0;
@@ -224,61 +204,37 @@ body{
     width:100%;
     @include flex-column;
     gap:0.5rem;
+    padding:0.5rem 0;
     @include tablet{
         @include flex-row;
         align-items: baseline;
         gap:0;
     }
- 
-}
-.shows__card--click{
-    background-color: $primary-silver;
-}
-.shows__title--tablet{
-    width:100%;
-    @include mobile{
-    display:none;
+   &:hover{
+    background-color: $second-white;
    }
-    @include tablet{
-    @include flex-row;
-    //justify-content: space-evenly;
-    list-style: none;
-    
-    }
-  
-}
-.shows__title{
-    color:$primary-silver;
-    @include body-copy;
-    font-weight: 700;
-    @include tablet{
-        display:none;
-    }
-}
-.shows__date{
+   &--click{
+    background-color: $primary-silver;}
+   }
+&__date{
     color:$primary-black;
     @include body-copy;
-    font-weight: 700;
-}
-.shows__venue,.shows__location{
-    color:$primary-black;
-    @include body-copy;
-}
-.shows__button{
-    background-color: $primary-black;
-    color:$primary-white;
-    height:40px;
-    border-radius: 4px;
-    margin:1rem 0;
-    @include labels;
     font-weight: 600;
 }
-.shows__devider{
-    //margin:1rem 0;
+&__venue,&__location{
+    color:$primary-black;
+    @include body-copy;
+}
+&__devider{
+    border:none;
     margin-block-start: 0;
     margin-block-end: 0;
     border-top: 1px solid #e1e1e1;
+    //margin-bottom: 1rem;
 }
+
+}
+
 
 //footer section
 .footer{
@@ -286,14 +242,7 @@ body{
     color:$primary-white;
      &__sec{
       position:relative;
-      margin:$margin-mobile;
-      @include tablet{
-          margin:$margin-tablet;
-      }
-      @include desktop{
-          width: $width-desktop;
-          margin:$margin-desktop;
-      }
+      @include margin-align;
   } 
      &__socialmedia{
       @include flex-column;
@@ -313,11 +262,6 @@ body{
      &__icons{
       @include flex-row;
       gap:2rem;
-      @include tablet{
-        padding-top:$padding-top-tablet;
-        padding-bottom:$padding-bottom-tablet;
-        @include text-style(36px,44px);
-    }
     }
     &__logo{
       position: absolute;
@@ -342,33 +286,19 @@ body{
         padding-bottom:5rem;
     }
     }
-    // individual contact section
     &__contact{
       @include flex-column;
   }
     &__name{
-      @include text-style(13px,18px);
-      font-family: 'avenir-next';
-      font-weight: 600;
-      @include tablet{
-          @include text-style(14px,20px);
-      }
+      @include body-copy;
+      font-weight:600;
   }
     &__address{
-      @include text-style(13px,18px);
-      font-family: 'avenir-next';
-      font-weight: 400;
-      @include tablet{
-          @include text-style(14px,20px);
-      }
+      @include body-copy;
   }
     &__email,&__copy{
-      @include text-style(10px,20px);
-      font-family: 'avenir-next';
+      @include labels;
       font-weight: 400;
-      @include tablet{
-          @include text-style(12px,20px);
-      }
   }
     &__copy{
       position:absolute;

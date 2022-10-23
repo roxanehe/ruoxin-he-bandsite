@@ -18,13 +18,7 @@
     }
 }
 
-//font types
-@mixin text-style($a,$b){
-    font-size: $a;
-    line-height: $b;
-}
-
-//flex
+//align
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -33,7 +27,31 @@
     display: flex;
     flex-direction: row;
 }
+@mixin margin-align{
+    margin:$margin-mobile;
+    @include tablet{
+        margin:$margin-tablet;
+    }
+    @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
+    }
+}
+@mixin padding-title{
+    padding-top:$padding-top-mobile;
+    padding-bottom:$padding-bottom-mobile;
+
+    @include tablet{
+        padding-top:$padding-top-tablet;
+        padding-bottom:$padding-bottom-tablet;
+    }
+}
+
 //font-style
+@mixin text-style($a,$b){
+    font-size: $a;
+    line-height: $b;
+}
 @mixin body-copy{
     @include text-style(13px, 18px);
     font-family: 'avenir-next';
@@ -49,4 +67,32 @@
     @include tablet{
         @include text-style(12px, 20px);
     }
+}
+@mixin section-header{
+    @include text-style(24px, 32px);
+    font-family: 'avenir-next';
+    font-weight: 700;
+    @include tablet{
+        @include text-style(36px, 44px);
+    }
+}
+@mixin sub-header{
+    @include text-style(14px, 22px);
+    font-family: 'avenir-next';
+    font-weight: 600;
+    @include tablet{
+        @include text-style(24px, 32px);
+    }
+}
+
+//other 
+@mixin avatar-img{
+  vertical-align: middle;
+  width:36px;
+  height:36px;
+  border-radius: 50%;
+  @include tablet{
+    width:48px;
+    height:48px;
+  }
 }

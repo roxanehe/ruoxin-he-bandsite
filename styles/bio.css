@@ -111,12 +111,17 @@ body {
   font-size: 24px;
   line-height: 32px;
   font-family: "avenir-next";
-  font-weight: 600;
+  font-weight: 700;
+  margin: 0 16px;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
     font-size: 36px;
     line-height: 44px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hero__title {
     margin: 0 36px;
   }
 }
@@ -131,18 +136,23 @@ body {
   font-size: 24px;
   line-height: 32px;
   font-family: "avenir-next";
-  font-weight: 600;
+  font-weight: 700;
   padding-top: 24px;
   padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
   .title {
-    padding-top: 48px;
-    padding-bottom: 36px;
     font-size: 36px;
     line-height: 44px;
   }
 }
+@media screen and (min-width: 768px) {
+  .title {
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+}
+
 .musicians {
   margin: 0 16px;
 }
@@ -280,11 +290,59 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
 }
-
 .form__comment {
   display: flex;
   flex-direction: column;
   width: 90%;
+}
+.form__img {
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  .form__img {
+    width: 48px;
+    height: 48px;
+  }
+}
+.form__label {
+  color: #afafaf;
+  font-size: 10px;
+  line-height: 20px;
+  font-family: "avenir-next";
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  .form__label {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+.form__button {
+  background-color: #323232;
+  color: white;
+  height: 40px;
+  border-radius: 4px;
+  margin: 1rem 0 0.5rem 0;
+  font-size: 10px;
+  line-height: 20px;
+  font-family: "avenir-next";
+  font-weight: 700;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    width: 30%;
+    align-self: flex-end;
+  }
 }
 
 .title--margin {
@@ -299,33 +357,6 @@ body {
   .title--margin {
     width: 1020px;
     margin: 0 auto;
-  }
-}
-
-.form__img, .shows__img {
-  vertical-align: middle;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-}
-@media screen and (min-width: 768px) {
-  .form__img, .shows__img {
-    width: 48px;
-    height: 48px;
-  }
-}
-
-.form__label {
-  color: #afafaf;
-  font-size: 10px;
-  line-height: 20px;
-  font-family: "avenir-next";
-  font-weight: 700;
-}
-@media screen and (min-width: 768px) {
-  .form__label {
-    font-size: 12px;
-    line-height: 20px;
   }
 }
 
@@ -396,31 +427,6 @@ body {
   }
 }
 
-.form__button {
-  background-color: #323232;
-  color: white;
-  height: 40px;
-  border-radius: 4px;
-  margin: 1rem 0 0.5rem 0;
-  font-size: 10px;
-  line-height: 20px;
-  font-family: "avenir-next";
-  font-weight: 700;
-  font-weight: 600;
-}
-@media screen and (min-width: 768px) {
-  .form__button {
-    font-size: 12px;
-    line-height: 20px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .form__button {
-    width: 30%;
-    align-self: flex-end;
-  }
-}
-
 .comments {
   margin-bottom: 2rem;
 }
@@ -486,6 +492,19 @@ body {
   }
 }
 
+.shows__img {
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  .shows__img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 .shows__devider {
   border-bottom: 1px solid #e1e1e1;
 }
@@ -538,14 +557,6 @@ body {
   flex-direction: row;
   gap: 2rem;
 }
-@media screen and (min-width: 768px) {
-  .footer__icons {
-    padding-top: 48px;
-    padding-bottom: 36px;
-    font-size: 36px;
-    line-height: 44px;
-  }
-}
 .footer__logo {
   position: absolute;
   bottom: 4rem;
@@ -584,12 +595,13 @@ body {
   font-size: 13px;
   line-height: 18px;
   font-family: "avenir-next";
+  font-weight: 400;
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   .footer__name {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 22px;
   }
 }
 .footer__address {
@@ -601,13 +613,14 @@ body {
 @media screen and (min-width: 768px) {
   .footer__address {
     font-size: 14px;
-    line-height: 20px;
+    line-height: 22px;
   }
 }
 .footer__email, .footer__copy {
   font-size: 10px;
   line-height: 20px;
   font-family: "avenir-next";
+  font-weight: 700;
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {

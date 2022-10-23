@@ -69,19 +69,15 @@ body{
     @include tablet{
         height:30rem;
     }
-   
-   //the sec needed to add opacity
    &__opacity{
     width:100%;
     height:20rem;
     background: rgba(0,0,0,0.5);
     position:relative;
     
-    //used to align the text
     @include flex-row;
     justify-content:flex-start;
     align-items: center;
-    //margin:0 auto;
 
     @include tablet{
         height:30rem;
@@ -89,55 +85,22 @@ body{
 
    &__title{
     color:$primary-white;
-    @include text-style(24px,32px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    //padding-left:1rem;
-    @include tablet{
-        @include text-style(36px,44px);
-        margin:$margin-tablet;
-    }
-    @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
-    }
-}    
+    @include section-header;
+    @include margin-align;
+   }    
 }
 
 
 //3 main titles: musician, photo, comment and footer
 .title{
-    @include text-style(24px,32px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    //margin:$margin-mobile;
-    padding-top:$padding-top-mobile;
-    padding-bottom:$padding-bottom-mobile;
-
-    @include tablet{
-        //margin:$margin-tablet;
-        padding-top:$padding-top-tablet;
-        padding-bottom:$padding-bottom-tablet;
-        @include text-style(36px,44px);
-    }
-    @include desktop{
-        //width: $width-desktop;
-        //margin:$margin-desktop;
-    }
+    @include section-header;
+    @include padding-title;
 }
 
 
 // musicians section
 .musicians{
-    margin:$margin-mobile;
-    @include tablet{
-        margin:$margin-tablet;
-    }
-    @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
-    }
-    //all content after musicians heading
+    @include margin-align;
     &__content{
         margin:$margin-mobile;
         @include tablet{
@@ -149,12 +112,7 @@ body{
     }
     //quoted intro content
     &__intro{
-        @include text-style(14px,22px);
-        font-family: 'avenir-next';
-        font-weight: 600;
-        @include tablet{
-            @include text-style(24px,32px);
-        }
+        @include sub-header;
         &--vary{
             @include tablet{
                 @include text-style(14px,22px);
@@ -162,12 +120,7 @@ body{
         }
     }
     &__title{
-        @include text-style(14px,22px);
-        font-family: 'avenir-next';
-        font-weight: 600;
-        @include tablet{
-            @include text-style(24px,32px);
-        }
+        @include sub-header;
     }
     &__items{
         @include tablet{
@@ -177,29 +130,16 @@ body{
         }
     }
     &__item{
-        @include text-style(13px,18px);
-        font-family: 'avenir-next';
-        font-weight: 400;
-        @include tablet{
-            @include text-style(14px,22px);
-        }
+        @include body-copy;
     }
 }
-
 
 
 //gallery section
 .gallery{
     background-color: $second-white;
     &__sec{
-        margin:$margin-mobile;
-        @include tablet{
-            margin:$margin-tablet;
-        }
-        @include desktop{
-            width:$width-desktop;
-            margin:$margin-desktop;
-        }   
+        @include margin-align;
     }
     &__imgs{
         @include flex-column;
@@ -234,34 +174,33 @@ body{
     @include flex-row;
     justify-content: space-between;
     gap:1.5rem;
-}
-.form__comment{
-    @include flex-column;
-    width:90%;
+    &__comment{
+        @include flex-column;
+        width:90%;
+    }
+    &__img{
+        @include avatar-img;
+    }
+    &__label{
+        color:$primary-silver;
+        @include labels;
+    }
+    &__button{
+        background-color: $primary-black;
+        color:$primary-white;
+        height:40px;
+        border-radius: 4px;
+        margin:1rem 0 0.5rem 0;
+        @include labels;
+        font-weight: 600;
+        @include tablet{
+            width:30%;
+            align-self: flex-end;
+        }}
+    
 }
 .title--margin{
-    margin:$margin-mobile;
-    @include tablet{
-        margin:$margin-tablet;
-    }
-    @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
-    }
-}
-.form__img,.shows__img{
-  vertical-align: middle;
-  width:36px;
-  height:36px;
-  border-radius: 50%;
-  @include tablet{
-    width:48px;
-    height:48px;
-  }
-}
-.form__label{
-    color:$primary-silver;
-    @include labels;
+    @include margin-align;
 }
 #comment,#name{
   border-radius: 4px;
@@ -287,22 +226,10 @@ body{
         height:8rem;
     }
 }
-.form__button{
-    background-color: $primary-black;
-    color:$primary-white;
-    height:40px;
-    border-radius: 4px;
-    margin:1rem 0 0.5rem 0;
-    @include labels;
-    font-weight: 600;
-    @include tablet{
-        width:30%;
-        align-self: flex-end;
-    }
 
-}
 
-//comment section
+//JS comment section
+
 .comments{
     margin-bottom: 2rem;
 }
@@ -311,7 +238,6 @@ body{
  @include flex-row;
  gap:1.5rem;
 }
-
 .comment__content{
   @include flex-column;
   width:90%;
@@ -333,10 +259,12 @@ body{
  font-weight: 600;
  color:$primary-silver;
 }
+.shows__img{
+    @include avatar-img;
+  }
 .shows__devider{
     border-bottom: 1px solid #e1e1e1;
 }
-
 
 
 //footer section
@@ -345,14 +273,7 @@ body{
   color:$primary-white;
    &__sec{
     position:relative;
-    margin:$margin-mobile;
-    @include tablet{
-        margin:$margin-tablet;
-    }
-    @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
-    }
+    @include margin-align;
 } 
    &__socialmedia{
     @include flex-column;
@@ -372,11 +293,6 @@ body{
    &__icons{
     @include flex-row;
     gap:2rem;
-    @include tablet{
-      padding-top:$padding-top-tablet;
-      padding-bottom:$padding-bottom-tablet;
-      @include text-style(36px,44px);
-  }
   }
   &__logo{
     position: absolute;
@@ -401,33 +317,19 @@ body{
       padding-bottom:5rem;
   }
   }
-  // individual contact section
   &__contact{
     @include flex-column;
 }
   &__name{
-    @include text-style(13px,18px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    @include tablet{
-        @include text-style(14px,20px);
-    }
+    @include body-copy;
+    font-weight:600;
 }
   &__address{
-    @include text-style(13px,18px);
-    font-family: 'avenir-next';
-    font-weight: 400;
-    @include tablet{
-        @include text-style(14px,20px);
-    }
+    @include body-copy;
 }
   &__email,&__copy{
-    @include text-style(10px,20px);
-    font-family: 'avenir-next';
+    @include labels;
     font-weight: 400;
-    @include tablet{
-        @include text-style(12px,20px);
-    }
 }
   &__copy{
     position:absolute;
