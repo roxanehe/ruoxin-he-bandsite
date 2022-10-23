@@ -5,6 +5,49 @@
   background-color:white;
 }
 
+// header:include logo and nav
+.header{
+    background-color: $primary-black;
+    @include flex-column;
+    align-items: center;
+    padding-top:1rem;
+   
+    @include tablet{
+        @include flex-row;
+        padding-top:0;
+        padding-left:2rem;
+        gap:1rem;
+    }   
+}
+//the 2 nav tabs
+.nav{
+    width:100%;
+    @include flex-row;
+    justify-content:space-evenly;
+    padding-top:1rem;
+    @include tablet{
+        width: 15rem;
+   } 
+   //individual nav tab
+   &__item{
+    @include text-style(14px,22px);
+    font-family: 'avenir-next';
+    font-weight: 600;
+    width:50%;
+    text-align: center;
+    padding-bottom: 1rem;
+    @include tablet{
+         width: 27%;
+    }  
+      &--active{
+        color:$primary-white;
+        border-bottom: 3px solid $primary-white;  
+    }
+      &--inactive{
+        color:$second-silver;
+    }
+}   
+}
 
 //hero sec：include background image, opacity and title
 .heroshows{
@@ -23,17 +66,21 @@
     @include flex-column;
     //gap:2rem;
     align-items:flex-start;
-    justify-content:space-evenly;
-    padding:1rem 2rem; 
+    justify-content:space-between;
+    padding:4rem 0 0 2rem; 
     //width:100%;
     //height:100%;
     @include desktop{
         @include flex-row;
         align-items: center;
+        justify-content:space-evenly;
+       //gap:8rem;
     }
    }
 .hero__titles{
-
+    @include flex-column;
+    align-items:flex-start;
+    gap:0.5rem;
 }
 .hero__img{
     width:25rem;
@@ -78,54 +125,90 @@
 }
 
 .shows__list{
+    margin:$margin-mobile;
+    padding-top:$padding-top-mobile;
+    padding-bottom:$padding-bottom-mobile;
+
+    @include tablet{
+        margin:$margin-tablet;
+        padding-top:$padding-top-tablet;
+        padding-bottom:$padding-bottom-tablet;
+    }
+    @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
+    }
     @include desktop{
         @include flex-row;
-        justify-content: space-around;
+        gap:7rem;
     }
 }
 .shows__maintitle{
-    //color:$primary-white;
-    margin-left: 1em;
-    @include text-style(32px,32px);
+    @include text-style(24px,32px);
     font-family: 'avenir-next';
     font-weight: 600;
     @include tablet{
         @include text-style(36px,44px);
-        
+    }     
    }
-
-}
 .shows__maincontent{
+    text-align: left;
     @include desktop{
         width:70vw;
     }
 }
+.shows__title--tablet{
+    width:100%;
+    padding-inline-start: 0;
+}
 .shows__tablettitle1,.shows__tablettitle2,.shows__tablettitle3{
+    color:$primary-silver;
+    @include body-copy;
+    font-weight: 700;
     width:25%;
-    text-align: left;
+    //text-align: left;
 }
 .shows__date,.shows__venue,.shows__location{
-    width:25%;
     @include tablet{
-        //@include flex-column;
+        width:30%;
     }
-    text-align: left;
+    @include desktop{
+        width:25%;
+    }
 }
 .shows__button{
+    width:100%;
     background-color: black;
     color:white;
-    width:16vw;
     padding:0.5rem;
+    @include tablet{
+      width:30%;
+    }
+    @include desktop{
+        width:20%;
+    }
+    
+}
+.shows__card:hover{
+    background-color: $second-white;
 }
 .shows__card{
     list-style: none;
-    //margin:0;
-    //padding:1rem;
+    padding-inline-start:0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     width:100%;
+    @include flex-column;
+    gap:0.5rem;
     @include tablet{
         @include flex-row;
+        align-items: baseline;
+        gap:0;
     }
  
+}
+.shows__card--click{
+    background-color: $primary-silver;
 }
 .shows__title--tablet{
     width:100%;
@@ -141,18 +224,33 @@
   
 }
 .shows__title{
-    color:grey;
+    color:$primary-silver;
+    @include body-copy;
+    font-weight: 700;
     @include tablet{
         display:none;
     }
 }
 .shows__date{
-    color:black;
+    color:$primary-black;
+    @include body-copy;
+    font-weight: 700;
+}
+.shows__venue,.shows__location{
+    color:$primary-black;
+    @include body-copy;
 }
 .shows__button{
-    
+    background-color: $primary-black;
+    color:$primary-white;
+    height:40px;
+    border-radius: 4px;
+    margin:1rem 0 0.5rem 0;
+    @include labels;
+    font-weight: 600;
 }
 .shows__devider{
+    margin:1rem 0;
     border-top: 1px solid #e1e1e1;
 }
 

@@ -57,14 +57,14 @@ body{
     background-image: url(../Assets/Images/hero-bio.jpg);
     background-size: 100%;
     background-position: center;  
-    height:25em;
+    height:20em;
     @include tablet{
         height:30rem;
    } 
    //the sec needed to add opacity
    &__opacity{
     width:100%;
-    height:25rem;
+    height:20rem;
     background: rgba(0,0,0,0.5);
     position:relative;
     
@@ -92,19 +92,24 @@ body{
 }
 
 
-//3 main titles: musician, photo and footer
+//3 main titles: musician, photo, comment and footer
 .title{
     @include text-style(24px,32px);
     font-family: 'avenir-next';
     font-weight: 600;
-    margin:0;
-
+    margin:$margin-mobile;
     padding-top:$padding-top-mobile;
     padding-bottom:$padding-bottom-mobile;
+
     @include tablet{
+        margin:$margin-tablet;
         padding-top:$padding-top-tablet;
         padding-bottom:$padding-bottom-tablet;
         @include text-style(36px,44px);
+    }
+    @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
     }
 }
 
@@ -202,10 +207,8 @@ body{
     }
 }
 
-.form{
-    @include flex-row;
-    justify-content: space-between;
-    gap:2rem;
+//form+comment section
+.form-comment{
     margin:$margin-mobile;
     @include tablet{
         margin:0 15vw;
@@ -214,20 +217,68 @@ body{
         margin:0 27vw;
     }   
 }
-.form__img{
-  vertical-align: middle;
-  width:4rem;
-  height:4rem;
-  border-radius: 50%;
+.form{
+    @include flex-row;
+    justify-content: space-between;
+    gap:1.5rem;
 }
 .form__comment{
     @include flex-column;
-    width:80%;
+    width:90%;
+}
+.title--form{
+    @include tablet{
+        position:relative;
+        right: 72px;
+    }
+    
+}
+.form__img,.shows__img{
+  vertical-align: middle;
+  width:36px;
+  height:36px;
+  border-radius: 50%;
+  @include tablet{
+    width:48px;
+    height:48px;
+  }
+}
+.form__label{
+    color:$primary-silver;
+    @include labels;
+}
+#comment,#name{
+  border-radius: 4px;
+  border:1px solid $second-silver;
+  background-color: $second-white;
+  padding:12px;
+  @include tablet{
+    padding:16px;
+  }
+}
+#name:focus,#comment:focus{
+    outline:none;
+    border:1px solid $primary-black;
+}
+#name::placeholder,#comment::placeholder{
+    color:$primary-black;
+    @include labels;
+    font-weight: 400;
 }
 #comment{
-    height:10rem;
+    height:6rem;
+    @include tablet{
+        height:8rem;
+    }
 }
 .form__button{
+    background-color: $primary-black;
+    color:$primary-white;
+    height:40px;
+    border-radius: 4px;
+    margin:1rem 0 0.5rem 0;
+    @include labels;
+    font-weight: 600;
     @include tablet{
         width:30%;
         align-self: flex-end;
@@ -235,25 +286,16 @@ body{
 
 }
 
+   //comment section
 .comments{
-    margin:$margin-mobile;
-    @include tablet{
-        margin:0 15vw;
-    }
-    @include desktop{
-        margin:0 27vw;
-    }   
+    margin-bottom: 2rem;
 }
 .comment{
+ padding:1rem 0 0.5rem 0;
  @include flex-row;
- gap:2rem;
+ gap:1.5rem;
 }
-.shows__img{
-  vertical-align: middle;
-  width:4rem;
-  height:4rem;
-  border-radius: 50%;
-}
+
 .comment__content{
   @include flex-column;
   width:90%;
@@ -263,13 +305,17 @@ body{
   justify-content: space-between;
 }
 .shows__content{
-
+ @include body-copy;
 }
 .shows__name{
+ @include body-copy;
+ font-weight: 600;
 
 }
 .shows__date{
-
+ @include body-copy;
+ font-weight: 600;
+ color:$primary-silver;
 }
 .shows__devider{
     border-bottom: 1px solid #e1e1e1;

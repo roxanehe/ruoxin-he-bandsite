@@ -67,8 +67,8 @@ for(let i=0;i<allComments.length;i++){
   displayComment(allComments[i]);
 
 }
-let main = document.querySelector('main');
-main.appendChild(comments)
+formComment = document.querySelector('.form-comment');
+formComment.appendChild(comments);
 
 let form = document.querySelector(".form");
 form.addEventListener('submit',event=>{
@@ -96,8 +96,8 @@ form.addEventListener('submit',event=>{
         displayComment(allComments[i]);
       
       }
-    main = document.querySelector('main');
-    main.appendChild(comments)
+    formComment = document.querySelector('.form-comment');
+    formComment.appendChild(comments);
 
     document.querySelector(".form").reset();
 })

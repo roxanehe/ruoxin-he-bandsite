@@ -125,8 +125,15 @@ for(let i = 0; i<shows.length;i++){
 
     showsMainContent.appendChild(showsCardDevider);
 
-}
-
+    //let showCard = document.querySelectorAll('.shows__card');
+    showCard.addEventListener('click',event=>{
+    event.preventDefault();
+    showCard.classList.add('shows__card--click')   
+})
+} ;
 
 showList.appendChild(showsMainContent);
 main.appendChild(showList); 
+
+
+
