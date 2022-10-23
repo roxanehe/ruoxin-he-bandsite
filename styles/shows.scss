@@ -1,6 +1,9 @@
 @use './partials/mixin' as *;
 @use "./partials/variables" as *;
 
+body{
+    margin:0;
+}
 .main{
   background-color:white;
 }
@@ -46,54 +49,76 @@
       &--inactive{
         color:$second-silver;
     }
-}   
+  }   
+  &__item__style--active{
+    text-decoration: none;
+    color:$primary-white;
+  }
+  &__item__style--inactive{
+    text-decoration: none;
+    color:$second-silver;
+  }
 }
 
 //hero sec：include background image, opacity and title
-.heroshows{
-    background-image: url(../Assets/Images/hero-shows.jpg);
-    background-size: 100%;
-    background-position: center;  
+.hero{
+    &__shows{
+        background-image: url(../Assets/Images/hero-shows.jpg);
+        background-size: 100%;
+        background-position: center; 
+        height:25rem;
+        @include tablet{
+            height:30rem;
+       }
+    }
+   &__opacity{
+    width:100%;
     height:25rem;
+    background: rgba(0,0,0,0.5);
+    position:relative;
     @include tablet{
         height:30rem;
-   } 
+   } }
    
-.hero__content{
-    //used to align everything inside
-    width:100%;
-    height:100%;
+   &__content{
+    height:25rem;
     @include flex-column;
-    //gap:2rem;
-    align-items:flex-start;
-    justify-content:space-between;
-    padding:4rem 0 0 2rem; 
-    //width:100%;
-    //height:100%;
+    //align-items:flex-start;
+    justify-content:space-around;
+    margin:$margin-mobile;
+    padding:2rem 0;
+    @include tablet{
+        margin:$margin-tablet;
+        padding:3rem 0;
+    }
     @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
         @include flex-row;
-        align-items: center;
-        justify-content:space-evenly;
-       //gap:8rem;
+        align-items:center;
+        justify-content:space-between;
     }
    }
-.hero__titles{
+  &__titles{
     @include flex-column;
     align-items:flex-start;
-    gap:0.5rem;
+    gap:1rem;
 }
-.hero__img{
-    width:25rem;
-}
+ &__img{
+    width:95%;
+    @include tablet{
+        width:60%;
+    }
+}   
 
-.hero__subtitle{
+&__subtitle{
     color:$primary-white;
     margin:0;
     font-family: 'avenir-next';
     font-weight: 400;
     @include text-style(22px,32px);
    }
-.hero__maintitle{
+&__maintitle{
     color:$primary-white;
     margin: 0;
     @include text-style(32px,32px);
@@ -126,19 +151,12 @@
 
 .shows__list{
     margin:$margin-mobile;
-    padding-top:$padding-top-mobile;
-    padding-bottom:$padding-bottom-mobile;
-
     @include tablet{
         margin:$margin-tablet;
-        padding-top:$padding-top-tablet;
-        padding-bottom:$padding-bottom-tablet;
     }
     @include desktop{
         width: $width-desktop;
         margin:$margin-desktop;
-    }
-    @include desktop{
         @include flex-row;
         gap:7rem;
     }
@@ -147,14 +165,20 @@
     @include text-style(24px,32px);
     font-family: 'avenir-next';
     font-weight: 600;
+    //padding-top:$padding-top-mobile;
+    //padding-bottom:$padding-bottom-mobile;
     @include tablet{
         @include text-style(36px,44px);
+       // padding-top:$padding-top-tablet;
+       // padding-bottom:$padding-bottom-tablet;
     }     
    }
 .shows__maincontent{
     text-align: left;
+    padding:2rem 0;
     @include desktop{
         width:70vw;
+        
     }
 }
 .shows__title--tablet{
@@ -245,12 +269,14 @@
     color:$primary-white;
     height:40px;
     border-radius: 4px;
-    margin:1rem 0 0.5rem 0;
+    margin:1rem 0;
     @include labels;
     font-weight: 600;
 }
 .shows__devider{
-    margin:1rem 0;
+    //margin:1rem 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     border-top: 1px solid #e1e1e1;
 }
 
@@ -269,15 +295,21 @@
           margin:$margin-desktop;
       }
   } 
-     //'get in touch' section
      &__socialmedia{
       @include flex-column;
       @include tablet{
         @include flex-row;
-        align-items:center;
+        justify-content:space-between;
+        align-items:baseline;
+    }
+    }
+    &__titleicons{
+      @include flex-column;
+      @include tablet{
+        @include flex-row;
+        align-items: baseline;
         gap:2rem;
-    }
-    }
+    }}
      &__icons{
       @include flex-row;
       gap:2rem;
@@ -291,9 +323,13 @@
       position: absolute;
       bottom:4rem;
       @include tablet{
-       position: absolute;
-       right: 0;
-       top:4rem;
+       display:none;
+      }
+      &--tablet{
+          display:none;
+          @include tablet{
+              display: flex;
+          }
       }
    }
    // 3 different contacts section

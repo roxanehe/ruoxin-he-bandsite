@@ -26,8 +26,8 @@
             </g>
         </svg>
         <nav class="nav">
-            <span class="nav__item nav__item--active">Biography</span>
-            <span class="nav__item nav__item--inactive">Shows</span>
+            <span class="nav__item nav__item--active" ><a class="nav__item__style--active" href="./index.html">Biography </a></span>
+            <span class="nav__item nav__item--inactive"><a class="nav__item__style--inactive" href="./pages/shows.html">Shows</a></span>
         </nav>
     </header>
 
@@ -67,7 +67,7 @@
             </div>
          </div>
         </section>
-        <h1 class="title">Join the Conversation</h1>
+        <h1 class="title title--margin" >Join the Conversation</h1>
         <section class="form-comment">
             <form class="form">
                 <img src="./assets/Images/Mohan-muruge.jpg" alt="form-img" class="form__img" name="img">
@@ -75,7 +75,7 @@
                     <label for="name" class="form__label">NAME</label>
                     <input id='name' name='commenter' type="text" placeholder="Enter your name"><br>
                     <label for="comment" class="form__label">COMMENT</label>
-                    <input id='comment' name='commentcontent' type="text area" placeholder="Add a new comment">
+                    <textarea id='comment' name='commentcontent' type="text" placeholder="Add a new comment"></textarea>
                     <button class="form__button">COMMENT</button>
                 </div>
             </form>
@@ -86,12 +86,15 @@
     <footer class="footer">
         <div class="footer__sec">
         <div class="footer__socialmedia">
-            <h2 class="title">Get in Touch</h2>
-            <div class="footer__icons">
-                <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-instagram.svg" alt="ins"></a>
-                <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-facebook.svg" alt="fb"></a>
-                <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-twitter.svg" alt="twitter"></a>
+            <div class="footer__titleicons">
+                <h2 class="title">Get in Touch</h2>
+                <div class="footer__icons">
+                    <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-instagram.svg" alt="ins"></a>
+                    <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-facebook.svg" alt="fb"></a>
+                    <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-twitter.svg" alt="twitter"></a>
+                </div>
             </div>
+            <img src="./Assets/Logo/Logo-bandsite.svg" alt="logo" class="footer__logo--tablet">
         </div>
         <div class="footer__contacts">
             <div class="footer__contact">

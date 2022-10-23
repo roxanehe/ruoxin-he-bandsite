@@ -47,8 +47,16 @@ body{
     }
       &--inactive{
         color:$second-silver;
-    }
-}   
+    } 
+ } 
+ &__item__style--active{
+    text-decoration: none;
+    color:$primary-white;
+  }
+  &__item__style--inactive{
+    text-decoration: none;
+    color:$second-silver;
+  }  
 }
 
 
@@ -57,10 +65,11 @@ body{
     background-image: url(../Assets/Images/hero-bio.jpg);
     background-size: 100%;
     background-position: center;  
-    height:20em;
+    height:20rem;
     @include tablet{
         height:30rem;
-   } 
+    }
+   
    //the sec needed to add opacity
    &__opacity{
     width:100%;
@@ -83,11 +92,15 @@ body{
     @include text-style(24px,32px);
     font-family: 'avenir-next';
     font-weight: 600;
-    padding-left:1rem;
+    //padding-left:1rem;
     @include tablet{
         @include text-style(36px,44px);
-        padding-left:2.25rem;
-   }
+        margin:$margin-tablet;
+    }
+    @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
+    }
 }    
 }
 
@@ -97,19 +110,19 @@ body{
     @include text-style(24px,32px);
     font-family: 'avenir-next';
     font-weight: 600;
-    margin:$margin-mobile;
+    //margin:$margin-mobile;
     padding-top:$padding-top-mobile;
     padding-bottom:$padding-bottom-mobile;
 
     @include tablet{
-        margin:$margin-tablet;
+        //margin:$margin-tablet;
         padding-top:$padding-top-tablet;
         padding-bottom:$padding-bottom-tablet;
         @include text-style(36px,44px);
     }
     @include desktop{
-        width: $width-desktop;
-        margin:$margin-desktop;
+        //width: $width-desktop;
+        //margin:$margin-desktop;
     }
 }
 
@@ -226,12 +239,15 @@ body{
     @include flex-column;
     width:90%;
 }
-.title--form{
+.title--margin{
+    margin:$margin-mobile;
     @include tablet{
-        position:relative;
-        right: 72px;
+        margin:$margin-tablet;
     }
-    
+    @include desktop{
+        width: $width-desktop;
+        margin:$margin-desktop;
+    }
 }
 .form__img,.shows__img{
   vertical-align: middle;
@@ -286,7 +302,7 @@ body{
 
 }
 
-   //comment section
+//comment section
 .comments{
     margin-bottom: 2rem;
 }
@@ -338,15 +354,21 @@ body{
         margin:$margin-desktop;
     }
 } 
-   //'get in touch' section
    &__socialmedia{
     @include flex-column;
     @include tablet{
       @include flex-row;
-      align-items:center;
+      justify-content:space-between;
+      align-items:baseline;
+  }
+  }
+  &__titleicons{
+    @include flex-column;
+    @include tablet{
+      @include flex-row;
+      align-items: baseline;
       gap:2rem;
-  }
-  }
+  }}
    &__icons{
     @include flex-row;
     gap:2rem;
@@ -360,9 +382,13 @@ body{
     position: absolute;
     bottom:4rem;
     @include tablet{
-     position: absolute;
-     right: 0;
-     top:4rem;
+     display:none;
+    }
+    &--tablet{
+        display:none;
+        @include tablet{
+            display: flex;
+        }
     }
  }
  // 3 different contacts section

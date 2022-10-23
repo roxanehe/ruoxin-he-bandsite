@@ -71,12 +71,20 @@ body {
 .nav__item--inactive {
   color: #e1e1e1;
 }
+.nav__item__style--active {
+  text-decoration: none;
+  color: white;
+}
+.nav__item__style--inactive {
+  text-decoration: none;
+  color: #e1e1e1;
+}
 
 .hero {
   background-image: url(../Assets/Images/hero-bio.jpg);
   background-size: 100%;
   background-position: center;
-  height: 20em;
+  height: 20rem;
 }
 @media screen and (min-width: 768px) {
   .hero {
@@ -104,13 +112,18 @@ body {
   line-height: 32px;
   font-family: "avenir-next";
   font-weight: 600;
-  padding-left: 1rem;
 }
 @media screen and (min-width: 768px) {
   .hero__title {
     font-size: 36px;
     line-height: 44px;
-    padding-left: 2.25rem;
+    margin: 0 36px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__title {
+    width: 1020px;
+    margin: 0 auto;
   }
 }
 
@@ -119,26 +132,17 @@ body {
   line-height: 32px;
   font-family: "avenir-next";
   font-weight: 600;
-  margin: 0 16px;
   padding-top: 24px;
   padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
   .title {
-    margin: 0 36px;
     padding-top: 48px;
     padding-bottom: 36px;
     font-size: 36px;
     line-height: 44px;
   }
 }
-@media screen and (min-width: 1280px) {
-  .title {
-    width: 1020px;
-    margin: 0 auto;
-  }
-}
-
 .musicians {
   margin: 0 16px;
 }
@@ -283,10 +287,18 @@ body {
   width: 90%;
 }
 
+.title--margin {
+  margin: 0 16px;
+}
 @media screen and (min-width: 768px) {
-  .title--form {
-    position: relative;
-    right: 72px;
+  .title--margin {
+    margin: 0 36px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .title--margin {
+    width: 1020px;
+    margin: 0 auto;
   }
 }
 
@@ -505,7 +517,19 @@ body {
   .footer__socialmedia {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+}
+.footer__titleicons {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .footer__titleicons {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
     gap: 2rem;
   }
 }
@@ -528,9 +552,15 @@ body {
 }
 @media screen and (min-width: 768px) {
   .footer__logo {
-    position: absolute;
-    right: 0;
-    top: 4rem;
+    display: none;
+  }
+}
+.footer__logo--tablet {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .footer__logo--tablet {
+    display: flex;
   }
 }
 .footer__contacts {
