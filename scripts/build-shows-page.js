@@ -69,11 +69,11 @@ showsMainContent.classList.add('shows__maincontent');
 createTabletTitle();
 
 
+
 for(let i = 0; i<shows.length;i++){
     //create shows_card and append to showlist
     let showCard = document.createElement('ul');
     showCard.classList.add('shows__card');
-
     showsMainContent.appendChild(showCard);
 
     //create three title elements
@@ -124,16 +124,20 @@ for(let i = 0; i<shows.length;i++){
     showsCardDevider.appendChild(showsDevider); 
 
     showsMainContent.appendChild(showsCardDevider);
-
-    //let showCard = document.querySelectorAll('.shows__card');
-    showCard.addEventListener('click',event=>{
-    event.preventDefault();
-    showCard.classList.add('shows__card--click')   
-})
+  
 } ;
 
 showList.appendChild(showsMainContent);
 main.appendChild(showList); 
 
-
-
+const clickElement = document.querySelectorAll(".shows__card");
+for(let i =0;i<shows.length;i++){
+    clickElement[i].addEventListener('click',event=>{
+      for(let j=0;j<shows.length;j++){
+        if(clickElement[j].classList.contains('shows__card--click') &&(i!=j)){
+            clickElement[j].classList.remove('shows__card--click');
+        }
+      }
+    clickElement[i].classList.add('shows__card--click');
+    })
+}
