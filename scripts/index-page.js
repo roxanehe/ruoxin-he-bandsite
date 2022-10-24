@@ -35,24 +35,24 @@ function displayComment(singleComment){
    let showsImg = document.createElement('img');
    showsImg.src = singleComment.img.src;
    showsImg.alt = singleComment.img.alt;
-   showsImg.classList.add('shows__img');
+   showsImg.classList.add('comment__shows__img');
    comment.appendChild(showsImg);
  
    let showsName = document.createElement('span');
    showsName.innerText = singleComment.name;
    commentPerson.appendChild(showsName);
-   showsName.classList.add('shows__name')
+   showsName.classList.add('comment__shows__name')
  
    let showsDate = document.createElement('span');
    showsDate.innerText = singleComment.date;
-   showsDate.classList.add('shows__date')
+   showsDate.classList.add('comment__shows__date')
  
    commentPerson.appendChild(showsDate); 
    commentContent.appendChild(commentPerson);
  
    let showsContent = document.createElement('p');
    showsContent.innerText = singleComment.content;
-   showsContent.classList.add('shows__content')
+   showsContent.classList.add('comment__shows__content')
    commentContent.appendChild(showsContent);
    
    comment.appendChild(commentContent);
@@ -60,7 +60,7 @@ function displayComment(singleComment){
    comments.appendChild(comment);
  
    let showsDevider = document.createElement('hr');
-   showsDevider.classList.add('shows__devider');
+   showsDevider.classList.add('comment__shows__devider');
    comments.appendChild(showsDevider); 
 }
 for(let i=0;i<allComments.length;i++){

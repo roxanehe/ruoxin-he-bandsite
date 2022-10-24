@@ -38,9 +38,9 @@ function createTabletTitle(){
     showsVenueTitle2.innerText = 'VENUE';
     showsLocationTitle2.innerText = 'LOCATION';
 
-    showsDateTitle2.classList.add('shows__tablettitle1');
-    showsVenueTitle2.classList.add('shows__tablettitle2');
-    showsLocationTitle2.classList.add('shows__tablettitle3');
+    showsDateTitle2.classList.add('shows__title--tablet1');
+    showsVenueTitle2.classList.add('shows__title--tablet2');
+    showsLocationTitle2.classList.add('shows__title--tablet3');
 
     titleListMobile.appendChild(showsDateTitle2);
     titleListMobile.appendChild(showsVenueTitle2);

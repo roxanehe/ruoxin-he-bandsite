@@ -115,7 +115,7 @@ body{
         @include sub-header;
         &--vary{
             @include tablet{
-                @include text-style(14px,22px);
+                @include text-style(0.875rem,1.375rem);
             }
         }
     }
@@ -184,11 +184,12 @@ body{
     &__label{
         color:$primary-silver;
         @include labels;
+        margin:0.5rem 0;
     }
     &__button{
         background-color: $primary-black;
         color:$primary-white;
-        height:40px;
+        height:2.5rem;
         border-radius: 4px;
         margin:1rem 0 0.5rem 0;
         @include labels;
@@ -197,6 +198,9 @@ body{
             width:30%;
             align-self: flex-end;
         }}
+    &__devider{
+        border-bottom: 1px solid $second-silver;
+    }
     
 }
 .title--margin{
@@ -206,9 +210,9 @@ body{
   border-radius: 4px;
   border:1px solid $second-silver;
   background-color: $second-white;
-  padding:12px;
+  padding:0.75rem;
   @include tablet{
-    padding:16px;
+    padding:1rem;
   }
 }
 #name:focus,#comment:focus{
@@ -237,33 +241,33 @@ body{
  padding:1rem 0 0.5rem 0;
  @include flex-row;
  gap:1.5rem;
-}
-.comment__content{
-  @include flex-column;
-  width:90%;
-}
-.comment__person{
-  @include flex-row;
-  justify-content: space-between;
-}
-.shows__content{
- @include body-copy;
-}
-.shows__name{
- @include body-copy;
- font-weight: 600;
-
-}
-.shows__date{
- @include body-copy;
- font-weight: 600;
- color:$primary-silver;
-}
-.shows__img{
+ &__content{
+    @include flex-column;
+    width:90%;
+  }
+ &__person{
+    @include flex-row;
+    justify-content: space-between;
+  }
+ &__shows__content{
+    @include body-copy;
+ }
+ &__shows__name{
+    @include body-copy;
+    font-weight: 600;
+   
+   }
+&__shows__date{
+    @include body-copy;
+    font-weight: 600;
+    color:$primary-silver;
+   }
+&__shows__img{
     @include avatar-img;
   }
-.shows__devider{
+&__shows__devider{
     border-bottom: 1px solid #e1e1e1;
+}
 }
 
 
