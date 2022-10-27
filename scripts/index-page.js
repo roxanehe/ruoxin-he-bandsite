@@ -13,63 +13,77 @@
     // put comment section into comments section
 //put comments section into main section
 
-let allComments =[
-    {img:{src:'../Assets/Images/band.jpg',alt:'Comment'},name:'Connor Walton',date:'02/17/2021',content:'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'},
-    {img:{src:'../Assets/Images/hero-bio.jpg',alt:'Comment'},name:'Emilie Beach',date:'01/09/2021',content:'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.'},
-    {img:{src:'../Assets/Images/hero-shows.jpg',alt:'Comment'},name:'Miles Acosta',date:'12/20/2020',content:"I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."}
-];
+
+const keys = "7dc02ca5-13cc-4aa2-9c34-94ca079c0ad7"
+axios
+.get(`https://project-1-api.herokuapp.com/comments?api_key=${keys}`)
+.then(result=>{
+    const allComments = result.data;
+    
+    let comments = document.createElement('section');
+    comments.classList.add('comments');
+    
+    for(let i=0;i<allComments.length;i++){
+        let comment = document.createElement('div');
+        comment.classList.add('comment');
+        let commentContent = document.createElement('div');
+        commentContent.classList.add('comment__content');
+        let commentPerson = document.createElement('div');
+        commentPerson.classList.add('comment__person');
+     
+     
+       let showsImg = document.createElement('img');
+       showsImg.src ='#';
+       showsImg.alt = 'photo';
+       showsImg.classList.add('comment__shows__img');
+       comment.appendChild(showsImg);
+     
+       let showsName = document.createElement('span');
+       showsName.innerText = allComments[i].name;
+       commentPerson.appendChild(showsName);
+       showsName.classList.add('comment__shows__name')
+       
+       let currentDate = new Date();
+       let currentDayOfMonth = currentDate.getDate();
+       let currentMonth = currentDate.getMonth()+1;
+       let currentYear = currentDate.getFullYear();
+      let dateString;
+      if(currentMonth>=10){
+       dateString = `${currentMonth}/${currentDayOfMonth}/${currentYear}`
+      }else{
+        dateString = `0${currentMonth}/${currentDayOfMonth}/${currentYear}`
+      }
+       let showsDate = document.createElement('span');
+       showsDate.innerText = dateString;
+       showsDate.classList.add('comment__shows__date')
+     
+       commentPerson.appendChild(showsDate); 
+       commentContent.appendChild(commentPerson);
+     
+       let showsContent = document.createElement('p');
+       showsContent.innerText = allComments[i].comment;
+       showsContent.classList.add('comment__shows__content')
+       commentContent.appendChild(showsContent);
+       
+       comment.appendChild(commentContent);
+     
+       comments.appendChild(comment);
+     
+       let showsDevider = document.createElement('hr');
+       showsDevider.classList.add('comment__shows__devider');
+       comments.appendChild(showsDevider);
+    }
+
+    let formComment = document.querySelector('.form-comment');
+    formComment.appendChild(comments);
+    
+})
+.catch(err=>{
+    console.log(err)
+})
 
 
-let comments = document.createElement('section');
-comments.classList.add('comments');
-function displayComment(singleComment){
-   
-    let comment = document.createElement('div');
-    comment.classList.add('comment');
-    let commentContent = document.createElement('div');
-    commentContent.classList.add('comment__content');
-    let commentPerson = document.createElement('div');
-    commentPerson.classList.add('comment__person');
- 
- 
-   let showsImg = document.createElement('img');
-   showsImg.src = singleComment.img.src;
-   showsImg.alt = singleComment.img.alt;
-   showsImg.classList.add('comment__shows__img');
-   comment.appendChild(showsImg);
- 
-   let showsName = document.createElement('span');
-   showsName.innerText = singleComment.name;
-   commentPerson.appendChild(showsName);
-   showsName.classList.add('comment__shows__name')
- 
-   let showsDate = document.createElement('span');
-   showsDate.innerText = singleComment.date;
-   showsDate.classList.add('comment__shows__date')
- 
-   commentPerson.appendChild(showsDate); 
-   commentContent.appendChild(commentPerson);
- 
-   let showsContent = document.createElement('p');
-   showsContent.innerText = singleComment.content;
-   showsContent.classList.add('comment__shows__content')
-   commentContent.appendChild(showsContent);
-   
-   comment.appendChild(commentContent);
- 
-   comments.appendChild(comment);
- 
-   let showsDevider = document.createElement('hr');
-   showsDevider.classList.add('comment__shows__devider');
-   comments.appendChild(showsDevider); 
-}
-for(let i=0;i<allComments.length;i++){
-  displayComment(allComments[i]);
-
-}
-formComment = document.querySelector('.form-comment');
-formComment.appendChild(comments);
-
+//add new comment
 let form = document.querySelector(".form");
 form.addEventListener('submit',event=>{
     event.preventDefault();
@@ -77,29 +91,85 @@ form.addEventListener('submit',event=>{
     const removed = document.querySelector('.comments')
     removed.remove();
     
-    let currentDate = new Date();
-    let currentDayOfMonth = currentDate.getDate();
-    let currentMonth = currentDate.getMonth()+1;
-    let currentYear = currentDate.getFullYear();
-    let dateString;
-    if(currentMonth>=10){
-       dateString = `${currentMonth}/${currentDayOfMonth}/${currentYear}`
-    }else{
-        dateString = `0${currentMonth}/${currentDayOfMonth}/${currentYear}`
-    }
-    const newComment= {img:{src:'../Assets/Images/Mohan-muruge.jpg',alt:'img'}, name:event.target.commenter.value, date:dateString, content:event.target.commentcontent.value}
-    allComments.push(newComment);
-
-    comments = document.createElement('section');
-    comments.classList.add('comments');
-    for(let i=0;i<allComments.length;i++){
-        displayComment(allComments[i]);
+    axios
+    .post(`https://project-1-api.herokuapp.com/comments?api_key=${keys}`,{
+      name: event.target.commenter.value,
+      comment:event.target.commentcontent.value,
+    })
+    .then(result=>{
+    axios
+    .get(`https://project-1-api.herokuapp.com/comments?api_key=${keys}`)
+    .then(result=>{
+      const allComments2 = result.data
       
+      let comments = document.createElement('section');
+      comments.classList.add('comments');
+      
+      function displayComment(singleComment){
+   
+        let comment = document.createElement('div');
+        comment.classList.add('comment');
+        let commentContent = document.createElement('div');
+        commentContent.classList.add('comment__content');
+        let commentPerson = document.createElement('div');
+        commentPerson.classList.add('comment__person');
+      
+      
+       let showsImg = document.createElement('img');
+       showsImg.src = '#';
+       showsImg.alt = 'img';
+       showsImg.classList.add('comment__shows__img');
+       comment.appendChild(showsImg);
+      
+       let showsName = document.createElement('span');
+       showsName.innerText = singleComment.name;
+       commentPerson.appendChild(showsName);
+       showsName.classList.add('comment__shows__name')
+       
+       let currentDate = new Date();
+       let currentDayOfMonth = currentDate.getDate();
+       let currentMonth = currentDate.getMonth()+1;
+       let currentYear = currentDate.getFullYear();
+       let dateString;
+       if(currentMonth>=10){
+           dateString = `${currentMonth}/${currentDayOfMonth}/${currentYear}`
+          }else{
+            dateString = `0${currentMonth}/${currentDayOfMonth}/${currentYear}`
+          }
+       let showsDate = document.createElement('span');
+       showsDate.innerText = dateString;
+       showsDate.classList.add('comment__shows__date')
+      
+       commentPerson.appendChild(showsDate); 
+       commentContent.appendChild(commentPerson);
+      
+       let showsContent = document.createElement('p');
+       showsContent.innerText = singleComment.comment;
+       showsContent.classList.add('comment__shows__content')
+       commentContent.appendChild(showsContent);
+       
+       comment.appendChild(commentContent);
+      
+       comments.appendChild(comment);
+      
+       let showsDevider = document.createElement('hr');
+       showsDevider.classList.add('comment__shows__devider');
+       comments.appendChild(showsDevider); 
+      }
+
+
+      for(let i=allComments2.length-1;i>=0;i--){
+        displayComment(allComments2[i]);
       }
     formComment = document.querySelector('.form-comment');
     formComment.appendChild(comments);
-
     document.querySelector(".form").reset();
-})
 
+    })
+    .catch()
+
+    })
+    .catch(err=>{console.log(err)})  
+})
+    
 
