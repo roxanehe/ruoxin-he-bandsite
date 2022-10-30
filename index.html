@@ -9,17 +9,17 @@
 </head>
 
 <body>
-    <header class="header">
-        <a href="./index.html"><img src="./assets/Logo/Logo-bandsite.svg" alt="Logo-bandsite"></a>
-        <nav class="nav">
-            <span class="nav__item nav__item--active" ><a class="nav__item__style--active" href="./index.html">Biography </a></span>
-            <span class="nav__item nav__item--inactive"><a class="nav__item__style--inactive" href="./pages/shows.html">Shows</a></span>
-        </nav>
+    <header class="bio__header">
+        <a href="/"><img src="./assets/Logo/Logo-bandsite.svg" alt="Logo-bandsite"></a>
+        <ul class="nav">
+            <li class="nav__style--active" ><a class="nav__item nav__item--active" href="/">Biography </a></li>
+            <li class="nav__style--inactive"><a class="nav__item nav__item--inactive" href="./pages/shows.html">Shows</a></li>
+        </ul>
     </header>
 
-    <section class="hero">
-        <div class="hero__opacity">
-            <h1 class="hero__title">The Bees Kness</h1>
+    <section class="bio-hero">
+        <div class="bio-hero__opacity">
+            <h1 class="bio-hero__title">The Bees Kness</h1>
         </div> 
     </section>
 
@@ -41,31 +41,31 @@
           <div class="gallery__sec">
             <h2 class="title">Photo Gallery</h2>
             <div class="gallery__imgs">
-                <img src="./Assets/Images/Photo-gallery-1.jpg" alt="photo1" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-2.jpg" alt="photo2" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-3.jpg" alt="photo3" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-4.jpg" alt="photo4" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-5.jpg" alt="photo5" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-6.jpg" alt="photo6" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-7.jpg" alt="photo7" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-8.jpg" alt="photo8" class="gallery__img">
-                <img src="./Assets/Images/Photo-gallery-9.jpg" alt="photo9" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-1.jpg" alt="band1" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-2.jpg" alt="band2" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-3.jpg" alt="band3" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-4.jpg" alt="band4" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-5.jpg" alt="band5" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-6.jpg" alt="band6" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-7.jpg" alt="band7" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-8.jpg" alt="band8" class="gallery__img">
+                <img src="./Assets/Images/Photo-gallery-9.jpg" alt="band9" class="gallery__img">
             </div>
          </div>
         </section>
-        <h1 class="title title--margin" >Join the Conversation</h1>
+        
+        <h2 class="title title--margin" >Join the Conversation</h2>
         <section class="form-comment">
             <form class="form">
-                <img src="./assets/Images/Mohan-muruge.jpg" alt="avatar-img" class="form__img" name="img">
+                <img src="./assets/Images/Mohan-muruge.jpg" alt="avatar-img" class="form__img" id="img">
                 <div class="form__comment">
                     <label for="name" class="form__label">NAME</label>
                     <input id='name' name='commenter' type="text" placeholder="Enter your name">
                     <label for="comment" class="form__label">COMMENT</label>
-                    <textarea id='comment' name='commentcontent' type="text" placeholder="Add a new comment"></textarea>
+                    <textarea id='comment' name='commentcontent' placeholder="Add a new comment"></textarea>
                     <button class="form__button">COMMENT</button>
                 </div>
-            </form>
-            <hr class="form__devider">    
+            </form>    
         </section>
     </main>
 
@@ -80,29 +80,36 @@
                     <a href="#" class="footer__icon"><img src="./Assets/Icons/SVG/Icon-twitter.svg" alt="twitter"></a>
                 </div>
             </div>
-            <img src="./Assets/Logo/Logo-bandsite.svg" alt="logo" class="footer__logo--tablet">
+            <img src="./Assets/Logo/Logo-bandsite.svg" alt="bandsite-logo" class="footer__logo--tablet">
         </div>
         <div class="footer__contacts">
             <div class="footer__contact">
-               <p class="footer__name">Cam Adams<br>The Bees Knees Management</p>
-               <p class="footer__address">503 Broadway Penthouse <br>New York, NY 10012, USA</p>
+               <p class="footer__name">Cam Adams</p>
+               <p class="footer__name footer__name--second">The Bees Knees Management</p> 
+               <p class="footer__address">503 Broadway Penthouse</p>
+               <p class="footer__address footer__address--second">New York, NY 10012, USA</p>
                <p class="footer__email">info@thebeesknees.com</p>
             </div>
             <div class="footer__contact">
-                <p class="footer__name">Pearl Gregg<br>Limitless Artist Group</p>
-                <p class="footer__address">Booking Agent for <br>US / South America / Japan</p>
+                <p class="footer__name">Pearl Gregg</p>
+                <p class="footer__name footer__name--second">Limitless Artist Group</p>
+                <p class="footer__address">Booking Agent for</p>
+                <p class="footer__address footer__address--second"> US / South America / Japan</p>
                 <p class="footer__email">pearl.gregg@limitlessag.com</p>
             </div>
             <div class="footer__contact">
-                <p class="footer__name">Carson Whyte<br>ARCH Entertainment</p>
-                <p class="footer__address">Booking Agent for <br>UK / EU / AU</p>
+                <p class="footer__name">Carson Whyte</p>
+                <p class="footer__name footer__name--second">ARCH Entertainment</p>
+                <p class="footer__address">Booking Agent for</p>
+                <p class="footer__address footer__address--second"> UK / EU / AU</p>
                 <p class="footer__email">cwhyte@archentertainment.com</p>
             </div>
         </div>
-        <img src="./Assets/Logo/Logo-bandsite.svg" alt="logo" class="footer__logo">
+        <img src="./Assets/Logo/Logo-bandsite.svg" alt="bandsite-logo" class="footer__logo">
         <span class="footer__copy">Copyright The Bees Knees © 2021 All Rights Reserved</span>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/index-page.js"></script>
 </body>

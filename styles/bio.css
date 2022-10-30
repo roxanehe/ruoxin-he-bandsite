@@ -15,13 +15,19 @@
 }
 body {
   margin: 0;
+  font-family: "avenir-next";
 }
 
 * {
   box-sizing: border-box;
 }
 
-.header {
+p {
+  margin: 0;
+  line-height: 1.2rem;
+}
+
+.bio__header {
   background-color: #323232;
   display: flex;
   flex-direction: column;
@@ -29,7 +35,7 @@ body {
   padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
-  .header {
+  .bio__header {
     display: flex;
     flex-direction: row;
     padding-top: 0;
@@ -39,11 +45,17 @@ body {
 }
 
 .nav {
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
   width: 100%;
+  list-style: none;
+  padding-top: 1rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
   .nav {
@@ -55,9 +67,8 @@ body {
   line-height: 22px;
   font-family: "avenir-next";
   font-weight: 600;
-  width: 50%;
-  text-align: center;
-  padding-bottom: 1rem;
+  padding: 0 15% 1rem 15%;
+  text-decoration: none;
 }
 @media screen and (min-width: 768px) {
   .nav__item {
@@ -66,32 +77,36 @@ body {
 }
 .nav__item--active {
   color: white;
-  border-bottom: 3px solid white;
 }
 .nav__item--inactive {
   color: #e1e1e1;
 }
-.nav__item__style--active {
-  text-decoration: none;
+.nav__style--active {
+  width: 50%;
+  text-align: center;
+  padding-bottom: 1rem;
   color: white;
+  border-bottom: 3px solid white;
 }
-.nav__item__style--inactive {
-  text-decoration: none;
+.nav__style--inactive {
+  width: 50%;
+  text-align: center;
+  padding-bottom: 1rem;
   color: #e1e1e1;
 }
 
-.hero {
+.bio-hero {
   background-image: url(../Assets/Images/hero-bio.jpg);
   background-size: 100%;
   background-position: center;
   height: 20rem;
 }
 @media screen and (min-width: 768px) {
-  .hero {
+  .bio-hero {
     height: 30rem;
   }
 }
-.hero__opacity {
+.bio-hero__opacity {
   width: 100%;
   height: 20rem;
   background: rgba(0, 0, 0, 0.5);
@@ -102,11 +117,11 @@ body {
   align-items: center;
 }
 @media screen and (min-width: 768px) {
-  .hero__opacity {
+  .bio-hero__opacity {
     height: 30rem;
   }
 }
-.hero__title {
+.bio-hero__title {
   color: white;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -115,18 +130,18 @@ body {
   margin: 0 16px;
 }
 @media screen and (min-width: 768px) {
-  .hero__title {
+  .bio-hero__title {
     font-size: 2.25rem;
     line-height: 2.75rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .hero__title {
+  .bio-hero__title {
     margin: 0 36px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .hero__title {
+  .bio-hero__title {
     width: 1020px;
     margin: 0 auto;
   }
@@ -289,6 +304,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
   gap: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 .form__comment {
   display: flex;
@@ -324,29 +341,41 @@ body {
 .form__button {
   background-color: #323232;
   color: white;
-  height: 2.5rem;
-  border-radius: 4px;
+  height: 3rem;
+  border-radius: 7px;
   margin: 1rem 0 0.5rem 0;
-  font-size: 0.625rem;
-  line-height: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
   font-family: "avenir-next";
-  font-weight: 700;
+  font-weight: 600;
   font-weight: 600;
 }
 @media screen and (min-width: 768px) {
+  .form__button {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .form__button {
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+    font-family: "avenir-next";
+    font-weight: 700;
+    width: 40%;
+    align-self: flex-end;
+  }
+}
+@media screen and (min-width: 768px) and (min-width: 768px) {
   .form__button {
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .form__button {
-    width: 30%;
-    align-self: flex-end;
+  .form__button:hover {
+    background-color: #000000;
   }
-}
-.form__devider {
-  border-bottom: 1px solid #e1e1e1;
 }
 
 .title--margin {
@@ -369,11 +398,16 @@ body {
   border: 1px solid #e1e1e1;
   background-color: #fafafa;
   padding: 0.75rem;
+  font-family: "avenir-next";
 }
 @media screen and (min-width: 768px) {
   #comment, #name {
     padding: 1rem;
   }
+}
+
+#comment {
+  resize: none;
 }
 
 #name:focus, #comment:focus {
@@ -440,6 +474,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
+  border-bottom: 1px solid #e1e1e1;
 }
 .comment__content {
   display: flex;
@@ -553,6 +588,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  margin-bottom: 1rem;
 }
 .footer__logo {
   position: absolute;
@@ -575,6 +611,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-bottom: 10rem;
+  gap: 1.5rem;
 }
 @media screen and (min-width: 768px) {
   .footer__contacts {
@@ -583,10 +620,6 @@ body {
     gap: 2rem;
     padding-bottom: 5rem;
   }
-}
-.footer__contact {
-  display: flex;
-  flex-direction: column;
 }
 .footer__name {
   font-size: 0.813rem;
@@ -601,6 +634,9 @@ body {
     line-height: 1.375rem;
   }
 }
+.footer__name--second {
+  margin-bottom: 1.5rem;
+}
 .footer__address {
   font-size: 0.813rem;
   line-height: 1.125rem;
@@ -612,6 +648,9 @@ body {
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
+}
+.footer__address--second {
+  margin-bottom: 1.5rem;
 }
 .footer__email, .footer__copy {
   font-size: 0.625rem;

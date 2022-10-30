@@ -7,9 +7,13 @@ body{
 .main{
   background-color:white;
 }
+p{
+  margin:0;
+  line-height: 1.2rem;
+}
 
 // header:include logo and nav
-.header{
+.shows__header{
     background-color: $primary-black;
     @include flex-column;
     align-items: center;
@@ -22,42 +26,52 @@ body{
         gap:1rem;
     }   
 }
+
 //the 2 nav tabs
 .nav{
-    width:100%;
-    @include flex-row;
-    justify-content:space-evenly;
-    padding-top:1rem;
-    @include tablet{
-        width: 15rem;
-   } 
-   //individual nav tab
-   &__item{
-    @include text-style(14px,22px);
-    font-family: 'avenir-next';
-    font-weight: 600;
-    width:50%;
-    text-align: center;
-    padding-bottom: 1rem;
-    @include tablet{
-         width: 27%;
-    }  
-      &--active{
-        color:$primary-white;
-        border-bottom: 3px solid $primary-white;  
-    }
-      &--inactive{
-        color:$second-silver;
-    }
-  }   
-  &__item__style--active{
-    text-decoration: none;
-    color:$primary-white;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start:0;
+  width:100%;
+  list-style: none;
+  padding-top: 1rem;
+  @include flex-row;
+  @include tablet{
+      width: 15rem;
+ } 
+ //individual nav tab
+ &__item{
+  @include text-style(14px,22px);
+  font-family: 'avenir-next';
+  font-weight: 600;
+  padding:0 15% 1rem 15%;
+  text-decoration: none;
+  @include tablet{
+       width: 27%;
+       
+  }  
+    &--active{
+      color:$primary-white;
   }
-  &__item__style--inactive{
-    text-decoration: none;
-    color:$second-silver;
-  }
+    &--inactive{
+      color:$second-silver;
+  } 
+} 
+&__style--active{
+  width:50%;
+  text-align: center;
+  padding-bottom: 1rem;
+  color:$primary-white;
+  border-bottom: 3px solid $primary-white; 
+ 
+}
+&__style--inactive{
+  width:50%;
+  text-align: center;
+  padding-bottom: 1rem;
+  color:$second-silver;
+ 
+}  
 }
 
 //hero sec：include background image, opacity and title
@@ -111,7 +125,7 @@ body{
     @include sub-header;
     font-weight: 600;
    }
-&__maintitle{
+   &__maintitle{
     color:$primary-white;
     margin: 0;
     width:20rem;
@@ -132,6 +146,7 @@ body{
     @include desktop{
         @include flex-row;
         justify-content: space-between;
+        align-items: baseline;
         gap:7rem;
     }}
   &__maintitle{
@@ -146,6 +161,8 @@ body{
 }
   &__title--tablet{
     padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     width:100%;
     @include mobile{
     display:none;
@@ -172,28 +189,27 @@ body{
 }
 &__date,&__venue,&__location{
     @include tablet{
-        width:30%;
-    }
-    @include desktop{
         width:25%;
     }
 }
+
 &__button{
     width:100%;
-    height:2.5rem;
     background-color: $primary-black;
     color:$primary-white;
-    padding:0.5rem;
+    padding:1rem;
     margin:0.5rem 0;
-    border-radius: 4px;
-    @include labels;
+    border-radius: 6px;
+    @include section-header;
     font-weight: 600;
     @include tablet{
-      width:30%;
+      padding:0.5rem;
+      width:25%;
+      @include labels;
     }
-    @include desktop{
-        width:25%;
-    }
+    &:hover{
+      background-color: $second-black;
+  }
     
 }
 &__card{
@@ -202,6 +218,7 @@ body{
     margin-block-start: 0;
     margin-block-end: 0;
     width:100%;
+    border-bottom: 1px solid $second-silver;
     @include flex-column;
     gap:0.5rem;
     padding:0.5rem 0;
@@ -210,7 +227,7 @@ body{
         align-items: baseline;
         gap:0;
     }
-   &:hover{
+    &--hover{
     background-color: $second-white;
    }
    &--click{
@@ -225,83 +242,84 @@ body{
     color:$primary-black;
     @include body-copy;
 }
-&__devider{
-    border:none;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    border-top: 1px solid #e1e1e1;
-}
-
 }
 
 
 //footer section
 .footer{
-    background-color: $primary-black;
-    color:$primary-white;
-     &__sec{
-      position:relative;
-      @include margin-align;
-  } 
-     &__socialmedia{
-      @include flex-column;
-      @include tablet{
-        @include flex-row;
-        justify-content:space-between;
-        align-items:baseline;
+  background-color: $primary-black;
+  color:$primary-white;
+   &__sec{
+    position:relative;
+    @include margin-align;
+} 
+   &__socialmedia{
+    @include flex-column;
+    @include tablet{
+      @include flex-row;
+      justify-content:space-between;
+      align-items:baseline;
+  }
+  }
+  &__titleicons{
+    @include flex-column;
+    @include tablet{
+      @include flex-row;
+      align-items: baseline;
+      gap:2rem;
+  }}
+   &__icons{
+    @include flex-row;
+    gap:2rem;
+    margin-bottom: 1rem;
+  }
+  &__logo{
+    position: absolute;
+    bottom:4rem;
+    @include tablet{
+     display:none;
     }
+    &--tablet{
+        display:none;
+        @include tablet{
+            display: flex;
+        }
     }
-    &__titleicons{
-      @include flex-column;
-      @include tablet{
-        @include flex-row;
-        align-items: baseline;
-        gap:2rem;
-    }}
-     &__icons{
+ }
+
+ // 3 different contacts section
+  &__contacts{
+    @include flex-column;
+    padding-bottom:10rem;
+    gap:1.5rem;
+    @include tablet{
       @include flex-row;
       gap:2rem;
-    }
-    &__logo{
-      position: absolute;
-      bottom:4rem;
-      @include tablet{
-       display:none;
-      }
-      &--tablet{
-          display:none;
-          @include tablet{
-              display: flex;
-          }
-      }
-   }
-   // 3 different contacts section
-    &__contacts{
-      @include flex-column;
-      padding-bottom:10rem;
-      @include tablet{
-        @include flex-row;
-        gap:2rem;
-        padding-bottom:5rem;
-    }
-    }
-    &__contact{
-      @include flex-column;
-  }
-    &__name{
-      @include body-copy;
-      font-weight:600;
-  }
-    &__address{
-      @include body-copy;
-  }
-    &__email,&__copy{
-      @include labels;
-      font-weight: 400;
-  }
-    &__copy{
-      position:absolute;
-      bottom:1rem;
+      padding-bottom:5rem;
   }
   }
-  
+  &__name{
+    @include body-copy;
+    font-weight:600;
+   
+}
+&__name--second{
+    margin-bottom:1.5rem;
+}
+  &__address{
+    @include body-copy;
+}
+&__address--second{
+    margin-bottom:1.5rem;
+}
+  &__email,&__copy{
+    @include labels;
+    font-weight: 400;
+}
+  &__copy{
+    position:absolute;
+    bottom:1rem;
+}
+}
+
+

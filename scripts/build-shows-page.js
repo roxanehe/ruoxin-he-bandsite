@@ -1,39 +1,29 @@
 
+const keys = "7dc02ca5-13cc-4aa2-9c34-94ca079c0ad7"
+axios
+.get(`https://project-1-api.herokuapp.com/showdates?api_key=${keys}`)
+.then(result=>{
+const main = document.querySelector('.shows__main');
+const showList = document.createElement('div');
+showList.classList.add('shows__list');
 
-//create a shows_list section
-//create a shows_maintitile section
-//create a shows_maincontent section (which includes everything other than title)
-//create a tablet title ul and three titles li (inside of li)
-//create a card content + divider section
-//create a card content section
-//create all card elements li + button (and add them into card conetnt)
 
-//access maintitle, add it to shows_list
-//access tablet title,add it to maincontent
-//loop through the array
-     //access every element inside card, and add it to card content section
-     //add card content section into card content+devider section
-     //access devider, and add it to card content+devider section
-     //add card content+devider section into maincontent 
-//add maintitle and maincontent into showlist
-//add showlist into main
+const showsMainTitle = document.createElement('h1');
+showsMainTitle.classList.add('shows__maintitle');
+showsMainTitle.innerText = 'Shows';
+showList.appendChild(showsMainTitle);
 
-let shows = [
-    {date:'Mon Sept 06 2021',venue:'Ronald Lane',location:'San Francisco, CA'},
-    {date:'Tue Sept 21 2021',venue:'Pier 3 East',location:'San Francisco, CA'},
-    {date:'Fri Oct 15 2021',venue:'View Lounge',location:'San Francisco, CA'},
-    {date:'Sat Nov 06 2021',venue:'Hyatt Agency',location:'San Francisco, CA'},
-    {date:'Fri Nov 26 2021',venue:'Moscow Center',location:'San Francisco, CA'},
-    {date:'Wed Dec 15 2021',venue:'Press Club',location:'San Francisco, CA'}
-];
+
+const showsMainContent = document.createElement('div');
+showsMainContent.classList.add('shows__maincontent');
 
 function createTabletTitle(){
-    let titleListMobile = document.createElement('ul');
+    const titleListMobile = document.createElement('ul');
     titleListMobile.classList.add('shows__title--tablet');
 
-    let showsDateTitle2 = document.createElement('li');
-    let showsVenueTitle2 = document.createElement('li');
-    let showsLocationTitle2 = document.createElement('li');
+    const showsDateTitle2 = document.createElement('li');
+    const showsVenueTitle2 = document.createElement('li');
+    const showsLocationTitle2 = document.createElement('li');
     showsDateTitle2.innerText = 'DATE';
     showsVenueTitle2.innerText = 'VENUE';
     showsLocationTitle2.innerText = 'LOCATION';
@@ -48,96 +38,90 @@ function createTabletTitle(){
 
     showsMainContent.appendChild(titleListMobile);
     }
-
-  
-
-
-let main = document.querySelector('.main');
-let showList = document.createElement('div');
-showList.classList.add('shows__list');
-
-
-let showsMainTitle = document.createElement('h1');
-showsMainTitle.classList.add('shows__maintitle');
-showsMainTitle.innerText = 'Shows';
-showList.appendChild(showsMainTitle);
-
-
-let showsMainContent = document.createElement('div');
-showsMainContent.classList.add('shows__maincontent');
-
 createTabletTitle();
 
-
-
-for(let i = 0; i<shows.length;i++){
-    //create shows_card and append to showlist
-    let showCard = document.createElement('ul');
-    showCard.classList.add('shows__card');
-    showsMainContent.appendChild(showCard);
-
-    //create three title elements
-    let showsDateTitle = document.createElement('li');
-    let showsVenueTitle = document.createElement('li');
-    let showsLocationTitle = document.createElement('li');
-
-    showsDateTitle.innerText = 'DATE';
-    showsVenueTitle.innerText = 'VENUE';
-    showsLocationTitle.innerText = 'LOCATION';
-
-    showsDateTitle.classList.add('shows__title');
-    showsVenueTitle.classList.add('shows__title');
-    showsLocationTitle.classList.add('shows__title');
+const shows = result.data
+console.log(shows)
+    shows.forEach(eve=>{
+        //create shows_card and append to showlist
+        const showCard = document.createElement('ul');
+        showCard.classList.add('shows__card');
+        showsMainContent.appendChild(showCard);
     
-    //create show card-devider add card and devider
-    let showsCardDevider = document.createElement('div');
-    showsCardDevider.classList.add('shows__carddevider');
-
-    //add each part's title and content
-    showCard.appendChild(showsDateTitle);
-    let showsDate = document.createElement('li');
-    showsDate.innerText = shows[i].date;
-    showsDate.classList.add('shows__date');
-    showCard.appendChild(showsDate);
+        //create three title elements
+        const showsDateTitle = document.createElement('li');
+        const showsVenueTitle = document.createElement('li');
+        const showsLocationTitle = document.createElement('li');
     
-    showCard.appendChild(showsVenueTitle);
-    let showsVenue = document.createElement('li');
-    showsVenue.innerText = shows[i].venue;
-    showsVenue.classList.add('shows__venue');
-    showCard.appendChild(showsVenue);
-
-  
-    showCard.appendChild(showsLocationTitle);
-    let showsLocation = document.createElement('li');
-    showsLocation.innerText = shows[i].location;
-    showsLocation.classList.add('shows__location');
-    showCard.appendChild(showsLocation);
+        showsDateTitle.innerText = 'DATE';
+        showsVenueTitle.innerText = 'VENUE';
+        showsLocationTitle.innerText = 'LOCATION';
     
-    let showsButton = document.createElement('button');
-    showsButton.innerText = 'BUY TICKETS';
-    showsButton.classList.add('shows__button');
-    showCard.appendChild(showsButton);
-    showsCardDevider.append(showCard);
+        showsDateTitle.classList.add('shows__title');
+        showsVenueTitle.classList.add('shows__title');
+        showsLocationTitle.classList.add('shows__title');
+        
+        //create show card-devider add card and devider
+        const showsCardDevider = document.createElement('div');
+        showsCardDevider.classList.add('shows__carddevider');
+    
+        //add each part's title and content
+        const currentDate = new Date(eve.date);
+        showCard.appendChild(showsDateTitle);
+        const showsDate = document.createElement('li');
+        showsDate.innerText = currentDate.toDateString();
+        showsDate.classList.add('shows__date');
+        showCard.appendChild(showsDate);
+        
+        showCard.appendChild(showsVenueTitle);
+        const showsVenue = document.createElement('li');
+        showsVenue.innerText = eve.place;
+        showsVenue.classList.add('shows__venue');
+        showCard.appendChild(showsVenue);
+    
+      
+        showCard.appendChild(showsLocationTitle);
+        const showsLocation = document.createElement('li');
+        showsLocation.innerText = eve.location;
+        showsLocation.classList.add('shows__location');
+        showCard.appendChild(showsLocation);
+        
+        const showsButton = document.createElement('button');
+        showsButton.innerText = 'BUY TICKETS';
+        showsButton.classList.add('shows__button');
+        showCard.appendChild(showsButton);
+        showsCardDevider.append(showCard);
+    
+        showsMainContent.appendChild(showsCardDevider);
+      
+    }) 
+    showList.appendChild(showsMainContent);
+    main.appendChild(showList); 
 
-    let showsDevider = document.createElement('hr');
-    showsDevider.classList.add('shows__devider');
-    showsCardDevider.appendChild(showsDevider); 
-
-    showsMainContent.appendChild(showsCardDevider);
-  
-} ;
-
-showList.appendChild(showsMainContent);
-main.appendChild(showList); 
-
-const clickElement = document.querySelectorAll(".shows__card");
-for(let i =0;i<shows.length;i++){
+    
+    const clickElement = document.querySelectorAll(".shows__card");
+    for(let i =0;i<shows.length;i++){
+    clickElement[i].addEventListener('mouseover',eve=>{
+        clickElement[i].classList.add('shows__card--hover');
+    })
+    clickElement[i].addEventListener('mouseout',eve=>{
+        clickElement[i].classList.remove('shows__card--hover');
+    })
     clickElement[i].addEventListener('click',event=>{
       for(let j=0;j<shows.length;j++){
         if(clickElement[j].classList.contains('shows__card--click') &&(i!=j)){
             clickElement[j].classList.remove('shows__card--click');
         }
       }
+    clickElement[i].classList.remove('shows__card--hover');
     clickElement[i].classList.add('shows__card--click');
     })
+    
 }
+
+})
+.catch(err=>{
+    console.log(err)
+})
+
+
